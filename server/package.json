@@ -1,0 +1,39 @@
+{
+  "name": "SSQaaS_server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/StarterSquad/SSQaaS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StarterSquad/SSQaaS/issues"
+  },
+  "homepage": "https://github.com/StarterSquad/SSQaaS",
+  "dependencies": {
+    "cli-color": "latest",
+    "gridfs-stream": "latest",
+    "jade": "latest",
+    "restify": "~2.6.1",
+    "mongoose": "latest",
+    "moment": "latest",
+    "mandrill-api": "latest",
+    "nodemailer":"~0.6.5",
+    "socket.io": "=1.0.6",
+    "underscore": "latest",
+    "underscore.string": "latest",
+    "q": "~1.0.1",
+    "client-sessions":"latest"
+  },
+  "devDependencies": {
+    "coffee-script": "latest",
+    "gulp": "latest",
+    "gulp-mocha": "latest",
+    "gulp-nodemon": "latest",
+    "mocha": "latest",
+    "should": "latest"
+  }
+}

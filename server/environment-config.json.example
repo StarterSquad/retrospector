@@ -1,0 +1,18 @@
+{
+  "environment": "development",
+  "db": "mongodb://localhost/paspoort-prod",
+  "baseUrl": "http://paspoort.dev/",
+  "mail": {
+    "type": "SMTP",
+    "settings": {
+      "service": "Gmail",
+      "auth": {
+        "user": "gmail.user@gmail.com",
+        "pass": "userpass"
+      }
+    },
+    "reply_address":"no-reply@localhost.localdomain"
+  },
+  "port": 3000,
+  "debug": true
+}

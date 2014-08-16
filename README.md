@@ -1,4 +1,4 @@
-retrospector
-============
+Retrospecor
+===========
 
-The Simplest Retrospective Tool
+A new way to spending retrospectives in your team.

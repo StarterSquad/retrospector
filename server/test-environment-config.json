@@ -1,0 +1,12 @@
+{
+  "environment": "test",
+  "db": "mongodb://localhost/paspoort-test",
+  "baseUrl": "http://paspoort.startersquad.com/",
+  "mail": {
+    "type": "SMTP",
+    "settings": {},
+    "reply_address":"no-reply@localhost.localdomain"
+  },
+  "port": 3000,
+  "debug": true
+}

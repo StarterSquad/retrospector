@@ -1,0 +1,12 @@
+{
+  "environment": "production",
+  "db": "mongodb://localhost/paspoort-prod",
+  "baseUrl": "http://paspoort.startersquad.com/",
+  "mail": {
+    "type": "SMTP",
+    "settings": {},
+    "reply_address":"no-reply@paspoort.startersquad.com"
+  },
+  "port": 3000,
+  "debug": false
+}
