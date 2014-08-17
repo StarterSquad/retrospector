@@ -10,4 +10,7 @@ module.exports = function (server) {
    * Users
    */
   server.get('/api/users/get-current', [middleware.isLoggedIn], users.getCurrent);
+  server.post('/api/users/auth', users.authenticate);
+  server.post('/api/users', users.register);
+  server.post('/api/users/logout', users.logout);
 };

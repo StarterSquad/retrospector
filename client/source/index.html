@@ -26,7 +26,7 @@
 </head>
 <body ng-cloak>
   <!-- Header -->
-  <div class="header" ng-controller="HeaderCtrl" ng-if="isLoggedIn">
+  <div class="header" ng-controller="HeaderCtrl" ng-show="UserManage.isLoggedIn">
     <div class="wrap">
       <div class="grid">
         <div class="3">
@@ -36,7 +36,11 @@
           <menu class="header_menu float-right">
             <menu-i sref="dashboard">Dashboard</menu-i>
             <menu-i sref="settings">Settings</menu-i>
-            <menu-i sref="logout">Sign out</menu-i>
+            <li class="menu_i">
+              <a class="menu_i_inner link __black __complex" ng-click="logout()">
+                <u class="link_u">Sign out</u>
+              </a>
+            </li>
           </menu>
         </div>
       </div>

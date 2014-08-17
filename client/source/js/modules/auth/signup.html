@@ -8,18 +8,24 @@
          type="text"
          ng-model="fullName"
          placeholder="Full name"
+         ng-init="fullName = 'Max Diachenko'"
+
          required="required">
   <input class="txbox margin-top-xxs"
          type="email"
          ng-model="email"
+
+         ng-init="email = 'max@startersquad.com'"
          placeholder="Email"
          required="required">
   <input class="txbox margin-top-xxs"
          type="password"
          ng-model="password"
+         ng-init="password = 'test'"
+
          placeholder="Password"
          required="required">
 
   <button type="submit" class="btn __l __primary __block __blue margin-top-xs">Join</button>
-  <p>Have you already an account? <a class="link" ui-sref="signin">Sign in</a></p>
+  <p class="text-right">Have you already an account? <a class="link" ui-sref="signin">Sign in</a></p>
 </form>

@@ -24,15 +24,20 @@ define(['./module'], function (module) {
           });
         },
         logout: function () {
-          return User.save({ path: 'logout' }, null, function () {
+          User.logout(function () {
             UserManager.clean();
-            $location.path('/');
-          }, function (result) {
-            $location.path('/');
+            $state.go('signin');
           });
         },
         register: function (fullName, email, password) {
-          console.log(arguments);
+          User.save({
+            fullName: fullName,
+            email: email,
+            password: password
+          }, function (user) {
+            UserManager.set(user);
+            $location.path('/');
+          });
         }
       };
 

@@ -32,8 +32,7 @@ define([
             location.href = '/#/signin';
 
             return $q.reject(response);
-          }
-          else {
+          } else {
             if (response.data.message) {
               alert(response.data.message);
             }
@@ -69,7 +68,9 @@ define([
       });
     }])
     
-    .controller('HeaderCtrl', ['$scope', 'UserManager', function ($scope, UserManager) {
-      $scope.isLoggedIn = UserManager.isLoggedIn;
+    .controller('HeaderCtrl', ['$scope', 'Auth', 'UserManager', function ($scope, Auth, UserManager) {
+      $scope.UserManage = UserManager;
+
+      $scope.logout = Auth.logout;
     }]);
 });

@@ -9,13 +9,16 @@
          ng-model="email"
          saved-login-form="saved-login-form"
          placeholder="Email"
+         ng-init="email = 'max@startersquad.com'"
          required="required">
   <input class="txbox margin-top-xxs"
          type="password"
          ng-model="password"
+         ng-init="password = 'test'"
          saved-login-form="saved-login-form"
          placeholder="Password"
          required="required">
 
   <button type="submit" class="btn __l __primary __block __blue margin-top-xs">Sign in</button>
+  <p class="text-right"><a class="link" ui-sref="signup">Create new account</a></p>
 </form>
