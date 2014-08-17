@@ -70,6 +70,27 @@
     }
   }
 
+  &.__blue {
+    background: #5989ff;
+    border: none;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background: #5989ff;
+    }
+
+    &.__active,
+    &:active:not(:disabled) {
+      box-shadow: none;
+      background: #5982f8;
+    }
+
+    &.__active,
+    &.__active:hover {
+      background: #5982f8;
+    }
+  }
+
   // ### Misc.
 
   &.__block {

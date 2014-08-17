@@ -5,15 +5,15 @@ define([
 ], function (angular) {
   'use strict';
 
-  return angular.module('app.home', [
+  return angular.module('app.dashboard', [
     'app.constants',
     'ui.router'
   ]).config(['$stateProvider', function ($stateProvider) {
     $stateProvider
-      .state('home', {
+      .state('dashboard', {
         url: '/',
-        templateUrl: 'js/modules/home/home.html',
-        controller: 'HomeController'
+        templateUrl: 'js/modules/dashboard/dashboard.html',
+        controller: 'DashboardCtrl'
       });
   }]);
 

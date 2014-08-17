@@ -1,11 +1,11 @@
 {
   "environment": "production",
-  "db": "mongodb://localhost/paspoort-prod",
-  "baseUrl": "http://paspoort.startersquad.com/",
+  "db": "mongodb://localhost/retrospector-prod",
+  "baseUrl": "http://retrospector.startersquad.com/",
   "mail": {
     "type": "SMTP",
     "settings": {},
-    "reply_address":"no-reply@paspoort.startersquad.com"
+    "reply_address":"no-reply@retrospector.startersquad.com"
   },
   "port": 3000,
   "debug": false

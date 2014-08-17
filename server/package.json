@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/StarterSquad/SSQaaS",
   "dependencies": {
+    "bcrypt": "latest",
     "cli-color": "latest",
     "gridfs-stream": "latest",
     "jade": "latest",

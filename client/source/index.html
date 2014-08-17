@@ -2,58 +2,70 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>ngseed (0.2.1)</title>
+  <title>Retrospector</title>
   <link rel="stylesheet" href="assets/css/main.css?bust=v0.4.0">
+
+  <style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+      display: none !important;
+    }
+
+    ng\:form {
+      display: block;
+    }
+
+    .ng-animate-block-transitions {
+      -webkit-transition: 0s all !important;
+      transition: 0s all !important;
+    }
+
+    .ng-hide-add-active, .ng-hide-remove {
+      display: block !important;
+    }
+  </style>
 </head>
-<body>
-
-<!-- Header -->
-<div class="header">
-  <div class="wrap">
-    <div class="grid">
-      <div class="3">
-        <i class="header_logo logo"></i>
-      </div>
-      <div class="9">
-        <menu class="header_menu">
-          <menu-i sref="docs.base">Base</menu-i>
-          <menu-i sref="docs.project">Project</menu-i>
-          <menu-i sref="docs.cosmetic">Cosmetic</menu-i>
-          <menu-i sref="docs.functions">Functions</menu-i>
-          <menu-i sref="docs.mixins">Mixins</menu-i>
-        </menu>
+<body ng-cloak>
+  <!-- Header -->
+  <div class="header" ng-controller="HeaderCtrl" ng-show="UserManage.isLoggedIn">
+    <div class="wrap">
+      <div class="grid">
+        <div class="3">
+          <i class="header_logo logo"></i>
+        </div>
+        <div class="9">
+          <menu class="header_menu float-right">
+            <menu-i sref="dashboard">Dashboard</menu-i>
+            <menu-i sref="settings">Settings</menu-i>
+            <li class="menu_i">
+              <a class="menu_i_inner link __black __complex" ng-click="logout()">
+                <u class="link_u">Sign out</u>
+              </a>
+            </li>
+          </menu>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="header-push"></div>
+  <div class="header-push"></div>
 
-<!-- Content -->
-<div class="section __head __foot wrap">
-  <div class="grid">
-    <div class="3"></div>
-    <div class="9">
-      <div ui-view></div>
-    </div>
-  </div>
-</div>
+  <!-- Content -->
+  <div class="section __head __foot wrap" ui-view></div>
 
-<!-- Scripts -->
-<script src="vendor/requirejs/require.js"></script>
-<script>
-  // obtain requirejs config
-  require(['require', './js/config-require'], function (require, config) {
+  <!-- Scripts -->
+  <script src="vendor/requirejs/require.js"></script>
+  <script>
+    // obtain requirejs config
+    require(['require', './js/config-require'], function (require, config) {
 
-    // set cache beater
-    config.urlArgs = 'bust=v0.1.0';
+      // set cache beater
+      config.urlArgs = 'bust=v0.1.0';
 
-    // update global require config
-    window.require.config(config);
+      // update global require config
+      window.require.config(config);
 
-    // load app
-    require(['./js/main.js']);
-  });
-</script>
-
+      // load app
+      require(['./js/main.js']);
+    });
+  </script>
 </body>
 </html>

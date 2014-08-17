@@ -1,7 +1,7 @@
 {
   "environment": "development",
-  "db": "mongodb://localhost/paspoort-prod",
-  "baseUrl": "http://paspoort.dev/",
+  "db": "mongodb://localhost/retrospector-prod",
+  "baseUrl": "http://retrospector.dev/",
   "mail": {
     "type": "SMTP",
     "settings": {

@@ -1,7 +1,7 @@
 {
   "environment": "test",
-  "db": "mongodb://localhost/paspoort-test",
-  "baseUrl": "http://paspoort.startersquad.com/",
+  "db": "mongodb://localhost/retrospector-test",
+  "baseUrl": "http://retrospector.startersquad.com/",
   "mail": {
     "type": "SMTP",
     "settings": {},

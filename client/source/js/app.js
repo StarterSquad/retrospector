@@ -6,20 +6,71 @@ define([
   'angular',
   'ui.router',
   './config',
-  './modules/docs/index',
-  './modules/home/index',
+  './modules/auth/index',
+  './modules/dashboard/index',
   './modules/ui/index'
 ], function (angular) {
   'use strict';
 
   return angular.module('app', [
+    'app.auth',
     'app.constants',
-    'app.docs',
-    'app.home',
+    'app.dashboard',
     'app.ui',
     'ui.router'
-  ]).config(['$urlRouterProvider', function ($urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
-  }]);
+  ])
 
+    .config(['$httpProvider', function ($httpProvider) {
+      var logoutUserOn401 = ['$q', function ($q) {
+        var success = function (response) {
+          return response;
+        };
+
+        var error = function (response) {
+          if (response.status === 401 && response.config.url !== '/api/users/get-current') {
+            // Redirect them back to login page
+            location.href = '/#/signin';
+
+            return $q.reject(response);
+          } else {
+            if (response.data.message) {
+              alert(response.data.message);
+            }
+
+            return $q.reject(response);
+          }
+        };
+
+        return function (promise) {
+          return promise.then(success, error);
+        };
+      }];
+
+      $httpProvider.responseInterceptors.push(logoutUserOn401);
+    }])
+
+    .config(['$urlRouterProvider', function ($urlRouterProvider) {
+      $urlRouterProvider.otherwise('/');
+    }])
+
+    .run(['$location', '$rootScope', '$state', 'Auth', 'UserManager', function ($location, $rootScope, $state, Auth, UserManager) {
+      if (window.user) {
+        UserManager.set(window.user);
+        delete window.user;
+      }
+
+      $rootScope.$on('$stateChangeStart', function (event, to, toParams, from, fromParams) {
+        if (!UserManager.isLoggedIn && to.name !== 'signin' && to.name !== 'signup') {
+          event.preventDefault();
+
+          $state.go('signup');
+        }
+      });
+    }])
+    
+    .controller('HeaderCtrl', ['$scope', 'Auth', 'UserManager', function ($scope, Auth, UserManager) {
+      $scope.UserManage = UserManager;
+
+      $scope.logout = Auth.logout;
+    }]);
 });
