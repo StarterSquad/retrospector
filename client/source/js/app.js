@@ -8,6 +8,7 @@ define([
   './config',
   './modules/auth/index',
   './modules/dashboard/index',
+  './modules/teams/index',
   './modules/ui/index'
 ], function (angular) {
   'use strict';
@@ -16,6 +17,7 @@ define([
     'app.auth',
     'app.constants',
     'app.dashboard',
+    'app.teams',
     'app.ui',
     'ui.router'
   ])
@@ -53,7 +55,7 @@ define([
       $urlRouterProvider.otherwise('/');
     }])
 
-    .run(['$location', '$rootScope', '$state', 'Auth', 'UserManager', function ($location, $rootScope, $state, Auth, UserManager) {
+    .run(['$location', '$rootScope', '$state', '$modalStack', 'Auth', 'UserManager', function ($location, $rootScope, $state, $modalStack, Auth, UserManager) {
       if (window.user) {
         UserManager.set(window.user);
         delete window.user;
@@ -65,6 +67,8 @@ define([
 
           $state.go('signup');
         }
+
+        $modalStack.dismissAll();
       });
     }])
     
