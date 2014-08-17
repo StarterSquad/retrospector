@@ -11,7 +11,9 @@ define({
     'async'         : 'vendor/requirejs-plugins/src/async',
     'jquery'        : 'vendor/jquery/dist/jquery',
     'ngResource'    : 'vendor/angular-resource/angular-resource',
-    'ui.router'     : 'vendor/angular-ui-router/release/angular-ui-router'
+    'ngCookies'     : 'vendor/angular-cookies/angular-cookies',
+    'ui.router'     : 'vendor/angular-ui-router/release/angular-ui-router',
+    'underscore'    : 'vendor/underscore/underscore'
   },
 
   shim: {
@@ -20,6 +22,7 @@ define({
       'exports': 'angular'
     },
     'ngResource': ['angular'],
+    'ngCookies': ['angular'],
     'ui.router' : ['angular']
   }
 });
