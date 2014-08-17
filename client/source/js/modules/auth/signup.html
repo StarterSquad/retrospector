@@ -1,0 +1,25 @@
+<form class="margin-top-l" role="form" style="width: 200px; margin: 0 auto" ng-submit="register()">
+  <div class="text-center">
+    <i class="header_logo logo"></i>
+    <br/>
+    The simplest retrospective tool
+  </div>
+  <input class="txbox margin-top-s"
+         type="text"
+         ng-model="fullName"
+         placeholder="Full name"
+         required="required">
+  <input class="txbox margin-top-xxs"
+         type="email"
+         ng-model="email"
+         placeholder="Email"
+         required="required">
+  <input class="txbox margin-top-xxs"
+         type="password"
+         ng-model="password"
+         placeholder="Password"
+         required="required">
+
+  <button type="submit" class="btn __l __primary __block __blue margin-top-xs">Join</button>
+  <p>Have you already an account? <a class="link" ui-sref="signin">Sign in</a></p>
+</form>
