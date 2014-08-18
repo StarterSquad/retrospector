@@ -1,12 +1,12 @@
 define([
   'angular',
   'ui.router',
-  '../../config'
+  '../common/gravatar-directive'
 ], function (angular) {
   'use strict';
 
   return angular.module('app.dashboard', [
-    'app.constants',
+    'ngGravatar',
     'ui.router'
   ]).config(['$stateProvider', function ($stateProvider) {
     $stateProvider
