@@ -5,5 +5,12 @@
 
   &_label {
     padding-top: 5px;
+    
+    &.__required:after {
+      position: absolute;
+      color: #c50000;
+      padding-left: 4px;
+      content: '*';
+    }
   }
 }

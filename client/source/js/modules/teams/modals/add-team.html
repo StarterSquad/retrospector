@@ -1,0 +1,55 @@
+<div class="modal-header">
+  <h3 class="modal-title">Add team</h3>
+</div>
+<div class="modal-body">
+  <!-- Add Team Form -->
+  <form class="form" name="AddTeamForm">
+    <div class="section grid">
+      <label class="form_label __required 3 text-right" for="first_name">Team name</label>
+      <div class="9">
+        <input type="text" class="txbox" id="first_name" ng-model="team.name" required="">
+      </div>
+    </div>
+    <div class="section grid">
+      <label class="form_label 3 text-right" for="invitations">
+        Invite members
+      </label>
+      <div class="9">
+        <textarea class="txbox"
+                  id="invitations"
+                  placeholder="emails separated by commas"
+                  ng-model="membersInvitations"
+                  ng-change="parseEmails()"></textarea>
+        <small ng-show="validInvitedMembersEmails.length">{{ validInvitedMembersEmails.length }} invitations will be successfully sent</small>
+      </div>
+    </div>
+
+    <div class="grid margin-top-xs">
+      <div class="++3">
+        <h3>Google Calendar integration</h3>
+        <p>Retrospector assumes you use <a class="link" href="https://www.google.com/calendar">Google Calendar</a> inside your team to orginize work better. Please, set API Key to integrate Retrospector with Google Calendar</p>
+      </div>
+    </div>
+
+    <div class="section grid">
+      <label class="form_label 3 text-right" for="googleCalendarApiKey">API Key</label>
+      <div class="9">
+        <input type="text" class="txbox" id="googleCalendarApiKey" ng-model="team.googleCalendarApiKey">
+      </div>
+    </div>
+
+    <div class="section grid">
+      <div class="++3 9">
+        <label class="checkbox-inline">
+          <input type="checkbox" required="" ng-model="user.accepted" class="">
+          I agree to the
+          <span class="link __blue">Terms and conditions</span>
+        </label>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer text-right">
+  <button class="btn" ng-click="$close()">Close</button>
+  <button class="btn" ng-disabled="AddTeamForm.$invalid" ng-click="addTeam()">Add team</button>
+</div>

@@ -1,0 +1,98 @@
+// Modal
+// =====
+
+.modal {
+  @include position(fixed, 0);
+  -webkit-overflow-scrolling: touch;
+  display: none;
+  outline: 0;
+  overflow-y: scroll;
+  z-index: 1050;
+
+  &_dialog {
+    margin: 10px;
+    position: relative;
+    width: auto;
+
+    .modal.fade & {
+      transform: translate(0, -25%);
+      transition: transform 0.3s ease-out;
+    }
+
+    .modal.in & {
+      transform: translate(0, 0);
+    }
+  }
+
+  &_inner {
+    background-clip: padding-box;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid rgba(#000, 0.2);
+    box-shadow: 0 3px 9px rgba(#000, 0.5);
+    outline: 0;
+    position: relative;
+  }
+}
+
+.modal-backdrop {
+  @include position(fixed, 0);
+  background-color: black;
+  z-index: 1040;
+
+  &.fade {
+    opacity: 0;
+  }
+
+  &.in {
+    opacity: 0.5;
+  }
+}
+
+.modal-footer, .modal-body {
+  padding: 15px
+}
+
+.modal-title {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.modal-footer {
+  border-top: 1px solid #e6e6e6;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+
+  .modal_dialog {
+    width: 600px;
+    margin: 30px auto;
+
+    &.__s {
+      width: 300px;
+    }
+  }
+
+  .modal_inner {
+    box-shadow: 0 5px 15px rgba(#000, 0.5);
+  }
+
+}
+
+@media (min-width: 992px) {
+
+  .modal_dialog.__l {
+    width: 900px;
+  }
+}
