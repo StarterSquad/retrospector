@@ -8,6 +8,7 @@ define([
   './config',
   './modules/auth/index',
   './modules/dashboard/index',
+  './modules/retrospectives/index',
   './modules/teams/index',
   './modules/ui/index'
 ], function (angular) {
@@ -17,6 +18,7 @@ define([
     'app.auth',
     'app.constants',
     'app.dashboard',
+    'app.retrospectives',
     'app.teams',
     'app.ui',
     'ui.router'

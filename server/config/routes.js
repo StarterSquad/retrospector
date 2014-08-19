@@ -5,6 +5,7 @@ var _ = require('underscore');
 var middleware = require('./middleware');
 var users = require('../controllers/users');
 var teams = require('../controllers/teams');
+var retrospectives = require('../controllers/retrospectives');
 
 module.exports = function (server) {
   /**
@@ -20,4 +21,10 @@ module.exports = function (server) {
    */
   server.get('/api/teams', teams.getList);
   server.post('/api/teams', teams.create);
+
+  /**
+   * Retrospectives
+   */
+  server.get('/api/retrospectives/:id', retrospectives.get);
+  server.post('/api/retrospectives', retrospectives.create);
 };

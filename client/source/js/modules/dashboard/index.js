@@ -1,1 +1,4 @@
-define(['./dashboard-ctrl'], function () {});
+define([
+  './dashboard-ctrl',
+  './modals/start-new-retrospective-ctrl'
+], function () {});

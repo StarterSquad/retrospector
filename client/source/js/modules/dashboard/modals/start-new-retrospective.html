@@ -1,0 +1,56 @@
+<div class="modal-header">
+  <h3 class="modal-title">Start new retrospective</h3>
+</div>
+<div class="modal-body">
+  <form class="form" name="StartNewRetrospectiveForm">
+    <div class="section grid">
+      <label class="form_label 3 text-right">Team</label>
+      <div class="4">
+        <select class="txbox" ng-model="selectedTeam" ng-options="team.name for team in myTeams"></select>
+      </div>
+    </div>
+    <div class="section grid">
+      <label class="form_label 3 text-right" for="invitations">
+        Invite other members
+      </label>
+      <div class="9">
+        <textarea class="txbox"
+                  id="invitations"
+                  placeholder="emails separated by commas"
+                  ng-model="membersInvitations"
+                  ng-change="parseEmails()"></textarea>
+        <small ng-show="validInvitedMembersEmails.length">{{ validInvitedMembersEmails.length }} invitations will be successfully sent</small>
+      </div>
+    </div>
+
+    <div class="section grid">
+      <label class="form_label __required 3 text-right" for="name">Retrospective name</label>
+      <div class="9">
+        <input type="text" class="txbox" id="name" ng-model="retrospective.name" required>
+      </div>
+    </div>
+
+    <div class="section grid">
+      <div class="++3 9">
+        <label class="checkbox-inline">
+          <input type="checkbox" ng-model="isScheduling">
+          Start later
+        </label>
+      </div>
+    </div>
+
+    <div class="section grid" ng-if="isScheduling">
+      <label class="form_label 3 text-right" for="datetime">Date/Time</label>
+      <div class="9">
+        <input type="date" class="txbox __inline" id="datetime" ng-model="retrospective.date">
+        <input type="time" class="txbox __inline" ng-model="retrospective.time">
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer text-right">
+  <button class="btn" ng-click="$close()">Cancel</button>
+  <button class="btn" ng-disabled="StartNewRetrospectiveForm.$invalid" ng-click="createRetro()">
+    {{ isScheduling ? 'Schedule' : 'Start now' }}
+  </button>
+</div>

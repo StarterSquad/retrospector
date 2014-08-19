@@ -1,13 +1,19 @@
 define([
   'angular',
   'ui.router',
-  '../common/gravatar-directive'
+  '../common/gravatar-directive',
+  '../user-manager/index',
+  '../resources/retroscpective',
+  '../resources/team'
 ], function (angular) {
   'use strict';
 
   return angular.module('app.dashboard', [
     'ngGravatar',
-    'ui.router'
+    'ui.router',
+    'app.resources.retrospective',
+    'app.resources.team',
+    'app.user-manager'
   ]).config(['$stateProvider', function ($stateProvider) {
     $stateProvider
       .state('dashboard', {
