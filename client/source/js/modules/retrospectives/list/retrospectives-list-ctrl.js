@@ -1,7 +1,7 @@
 define(['./module'], function (module) {
   'use strict';
 
-  module.controller('RetrospectivesListCtrl', ['$scope', function ($scope) {
+  module.controller('RetrospectivesListCtrl', function ($scope) {
 
-  }]);
+  });
 });

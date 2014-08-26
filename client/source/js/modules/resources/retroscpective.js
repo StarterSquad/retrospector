@@ -6,7 +6,7 @@ define([
 
   return angular.module('app.resources.retrospective', ['ngResource'])
 
-    .service('Retrospective', ['$resource', function ($resource) {
+    .service('Retrospective', function ($resource) {
       return $resource('/api/retrospectives/:id/:path', { id: '@_id', path: '@path' });
-    }]);
+    });
 });

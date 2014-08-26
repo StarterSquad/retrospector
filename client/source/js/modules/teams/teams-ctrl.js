@@ -1,7 +1,7 @@
 define(['./module', 'underscore'], function (module, _) {
   'use strict';
 
-  module.controller('TeamsCtrl', ['$scope', '$modal', 'myTeams', function ($scope, $modal, myTeams) {
+  module.controller('TeamsCtrl', function ($scope, $modal, myTeams) {
     $scope.teams = myTeams;
 
     /**
@@ -20,5 +20,5 @@ define(['./module', 'underscore'], function (module, _) {
           }
         })
     };
-  }]);
+  });
 });

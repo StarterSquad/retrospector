@@ -10,16 +10,18 @@ define([
     'ui.router',
     'app.user-manager',
     'app.resources.team'
-  ]).config(['$stateProvider', function ($stateProvider) {
-    $stateProvider.state('teams', {
-      url: '/teams',
-      templateUrl: '/js/modules/teams/teams.html',
-      controller: 'TeamsCtrl',
-      resolve: {
-        myTeams: ['Team', 'UserManager', function (Team, UserManager) {
-          return Team.query({ member: UserManager.data._id }).$promise;
-        }]
-      }
+  ])
+
+    .config(function ($stateProvider) {
+      $stateProvider.state('teams', {
+        url: '/teams',
+        templateUrl: '/js/modules/teams/teams.html',
+        controller: 'TeamsCtrl',
+        resolve: {
+          myTeams: function (Team, UserManager) {
+            return Team.query({ member: UserManager.data._id }).$promise;
+          }
+        }
+      });
     });
-  }]);
 });

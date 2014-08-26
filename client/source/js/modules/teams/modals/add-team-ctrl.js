@@ -1,7 +1,7 @@
 define(['../module', 'underscore'], function (module, _) {
   'use strict';
 
-  module.controller('AddTeamCtrl', ['$scope', 'Team', 'UserManager', function ($scope, Team, UserManager) {
+  module.controller('AddTeamCtrl', function ($scope, Team, UserManager) {
     /**
      * Init models
      */
@@ -32,5 +32,5 @@ define(['../module', 'underscore'], function (module, _) {
 
       $scope.validInvitedMembersEmails = emails
     };
-  }]);
+  });
 });

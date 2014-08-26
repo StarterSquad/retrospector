@@ -13,29 +13,27 @@ define([
     'ngCookies'
   ])
 
-    .config(['$stateProvider', function ($stateProvider) {
-      $stateProvider
-
-        .state('signin', {
-          url: '/signin',
-          templateUrl: 'js/modules/auth/signin.html',
-          controller: 'SigninCtrl',
-          onEnter: ['$stateParams', '$location', 'UserManager', function ($stateParams, $location, UserManager) {
-            if (UserManager.isLoggedIn) {
-              $location.path('/');
-            }
-          }]
-        })
+    .config(function ($stateProvider) {
+      $stateProvider.state('signin', {
+        url: '/signin',
+        templateUrl: 'js/modules/auth/signin.html',
+        controller: 'SigninCtrl',
+        onEnter: function ($stateParams, $location, UserManager) {
+          if (UserManager.isLoggedIn) {
+            $location.path('/');
+          }
+        }
+      })
 
         .state('signup', {
           url: '/signup',
           templateUrl: 'js/modules/auth/signup.html',
           controller: 'SignupCtrl',
-          onEnter: ['$stateParams', '$location', 'UserManager', function ($stateParams, $location, UserManager) {
+          onEnter: function ($stateParams, $location, UserManager) {
             if (UserManager.isLoggedIn) {
               $location.path('/');
             }
-          }]
+          }
         });
-    }]);
+    });
 });

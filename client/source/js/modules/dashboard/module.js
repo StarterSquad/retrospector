@@ -14,13 +14,13 @@ define([
     'app.resources.retrospective',
     'app.resources.team',
     'app.user-manager'
-  ]).config(['$stateProvider', function ($stateProvider) {
-    $stateProvider
-      .state('dashboard', {
+  ])
+
+    .config(function ($stateProvider) {
+      $stateProvider.state('dashboard', {
         url: '/',
         templateUrl: 'js/modules/dashboard/dashboard.html',
         controller: 'DashboardCtrl'
       });
-  }]);
-
+    });
 });

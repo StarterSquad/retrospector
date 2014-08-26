@@ -1,7 +1,7 @@
 define(['./module'], function (module) {
   'use strict';
 
-  module.controller('SigninCtrl', ['$scope', 'Auth', function ($scope, Auth) {
+  module.controller('SigninCtrl', function ($scope, Auth) {
     /**
      * Methods
      */
@@ -9,5 +9,5 @@ define(['./module'], function (module) {
     $scope.authenticate = function () {
       Auth.login($scope.email, $scope.password);
     };
-  }]);
+  });
 });

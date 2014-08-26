@@ -24,7 +24,7 @@ define([
     'ui.router'
   ])
 
-    .config(['$httpProvider', function ($httpProvider) {
+    .config(function ($httpProvider) {
       var logoutUserOn401 = ['$q', function ($q) {
         var success = function (response) {
           return response;
@@ -51,13 +51,13 @@ define([
       }];
 
       $httpProvider.responseInterceptors.push(logoutUserOn401);
-    }])
+    })
 
-    .config(['$urlRouterProvider', function ($urlRouterProvider) {
+    .config(function ($urlRouterProvider) {
       $urlRouterProvider.otherwise('/');
-    }])
+    })
 
-    .run(['$location', '$rootScope', '$state', '$modalStack', 'Auth', 'UserManager', function ($location, $rootScope, $state, $modalStack, Auth, UserManager) {
+    .run(function ($location, $rootScope, $state, $modalStack, Auth, UserManager) {
       if (window.user) {
         UserManager.set(window.user);
         delete window.user;
@@ -72,11 +72,11 @@ define([
 
         $modalStack.dismissAll();
       });
-    }])
-    
-    .controller('HeaderCtrl', ['$scope', 'Auth', 'UserManager', function ($scope, Auth, UserManager) {
+    })
+
+    .controller('HeaderCtrl', function ($scope, Auth, UserManager) {
       $scope.UserManage = UserManager;
 
       $scope.logout = Auth.logout;
-    }]);
+    });
 });

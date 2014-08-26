@@ -6,11 +6,13 @@ define([
 
   return angular.module('app.retrospectives.list', [
     'ui.router'
-  ]).config(['$stateProvider', function ($stateProvider) {
-    $stateProvider.state('retrospectives.list', {
-      url: '/list',
-      templateUrl: '/js/modules/retrospectives/list/retrospectives-list.html',
-      controller: 'RetrospectivesListCtrl'
+  ])
+
+    .config(function ($stateProvider) {
+      $stateProvider.state('retrospectives.list', {
+        url: '/list',
+        templateUrl: '/js/modules/retrospectives/list/retrospectives-list.html',
+        controller: 'RetrospectivesListCtrl'
+      });
     });
-  }]);
 });

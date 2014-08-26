@@ -4,19 +4,18 @@ define(['./module'], function (module) {
   /**
    * Directive-based hack for automatically filled forms of sign in
    */
-  module.directive('savedLoginForm', ['$timeout', function ($timeout) {
+  module.directive('savedLoginForm', function ($timeout) {
     return {
       require: 'ngModel',
-      link: function(scope, elem, attr, ngModel) {
+      link: function (scope, elem, attr, ngModel) {
         var origVal = elem.val();
         $timeout(function () {
           var newVal = elem.val();
-          if(ngModel.$pristine && origVal !== newVal) {
+          if (ngModel.$pristine && origVal !== newVal) {
             ngModel.$setViewValue(newVal);
           }
         }, 500);
       }
     };
-  }]);
-
+  });
 });

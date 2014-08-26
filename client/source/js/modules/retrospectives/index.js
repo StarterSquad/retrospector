@@ -10,11 +10,13 @@ define([
     'ui.router',
     'app.retrospectives.list',
     'app.retrospectives.view'
-  ]).config(['$stateProvider', function ($stateProvider) {
-    $stateProvider.state('retrospectives', {
-      url: '/retrospectives',
-      abstract: true,
-      template: '<ui-view>'
+  ])
+
+    .config(function ($stateProvider) {
+      $stateProvider.state('retrospectives', {
+        url: '/retrospectives',
+        abstract: true,
+        template: '<ui-view>'
+      });
     });
-  }]);
 });

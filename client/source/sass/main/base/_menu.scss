@@ -2,6 +2,7 @@
 // ====
 
 .menu {
+  display: inline-table;
   @extend %clearfix;
   list-style: none;
   margin: 0;

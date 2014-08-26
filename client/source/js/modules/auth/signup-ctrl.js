@@ -1,7 +1,7 @@
 define(['./module'], function (module) {
   'use strict';
 
-  module.controller('SignupCtrl', ['$scope', '$stateParams', 'Auth', function ($scope, $stateParams, Auth) {
+  module.controller('SignupCtrl', function ($scope, $stateParams, Auth) {
     /**
      * Methods
      */
@@ -9,5 +9,5 @@ define(['./module'], function (module) {
     $scope.register = function () {
       Auth.register($scope.fullName, $scope.email, $scope.password);
     };
-  }]);
+  });
 });

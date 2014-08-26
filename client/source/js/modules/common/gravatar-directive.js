@@ -1,7 +1,7 @@
 define(['angular', 'js-md5'], function (angular, md5) {
   'use strict';
 
-  angular.module('ngGravatar', []).directive('ngGravatar', ['$location', function ($location) {
+  angular.module('ngGravatar', []).directive('ngGravatar', function ($location) {
     return {
       template: '<img src="https://secure.gravatar.com/avatar/{{ imgHash }}?s={{ imgSize }}" alt="gravatarImg" width="{{ imgSize }}px">',
       replace: true,
@@ -15,5 +15,5 @@ define(['angular', 'js-md5'], function (angular, md5) {
         scope.imgSize = attrs.size || '300';
       }
     };
-  }]);
+  });
 });

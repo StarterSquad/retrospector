@@ -8,7 +8,7 @@ define([
   // You can place operations that need to initialize prior to app start here
   // using the `run` function on the top-level module
 
-  angular.injector(['ng']).invoke(['$http', function ($http) {
+  angular.injector(['ng']).invoke(function ($http) {
     $http.get('/api/users/get-current')
       .success(function (user) {
         window.user = user;
@@ -16,5 +16,5 @@ define([
       .finally(function () {
         angular.bootstrap(document, ['app']);
       });
-  }]);
+  });
 });

@@ -3,7 +3,7 @@ define(['angular', 'underscore', '../resources/user'], function (angular, _) {
 
   return angular.module('app.user-manager', ['app.resources.user'])
 
-    .service('UserManager', ['User', function (User) {
+    .service('UserManager', function (User) {
       var user = {
         isLoggedIn: false,
         clean: function () {
@@ -22,5 +22,5 @@ define(['angular', 'underscore', '../resources/user'], function (angular, _) {
       };
 
       return user;
-    }]);
+    });
 });

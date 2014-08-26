@@ -6,7 +6,7 @@ define([
 
   return angular.module('app.resources.user', ['ngResource'])
 
-    .service('User', ['$resource', function ($resource) {
+    .service('User', function ($resource) {
       return $resource('/api/users/:id/:path', { id: '@_id', path: '@path' }, {
         logout: {
           method: 'POST',
@@ -15,5 +15,5 @@ define([
           }
         }
       });
-    }]);
+    });
 });
