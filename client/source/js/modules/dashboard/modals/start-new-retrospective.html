@@ -6,7 +6,7 @@
     <div class="section grid">
       <label class="form_label 3 text-right">Team</label>
       <div class="4">
-        <select class="txbox" ng-model="selectedTeam" ng-options="team.name for team in myTeams"></select>
+        <select class="txbox" ng-model="retrospective.team" ng-options="team._id as team.name for team in myTeams"></select>
       </div>
     </div>
     <div class="section grid">

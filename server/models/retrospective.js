@@ -12,6 +12,11 @@ var RetrospectiveSchema = new Schema({
     ref: 'Team',
     required: true
   },
+  leader: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
+  },
   guests: [{
     type: Schema.Types.ObjectId,
     ref: 'User'

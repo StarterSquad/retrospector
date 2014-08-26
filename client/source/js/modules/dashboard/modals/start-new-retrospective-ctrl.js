@@ -7,16 +7,16 @@ define(['../module', 'moment'], function (module, moment) {
      */
 
     $scope.myTeams = myTeams;
-    $scope.selectedTeam = myTeams[0];
-    $scope.retrospective = new Retrospective();
+    $scope.retrospective = new Retrospective({
+      team: myTeams[0]._id,
+      leader: UserManager.data._id
+    });
 
     /**
      * Methods
      */
 
     $scope.createRetro = function () {
-      $scope.retrospective.team = $scope.selectedTeam._id;
-
       $scope.retrospective.$save(function (createdRetrospective) {
         if ($scope.isScheduling) {
           $scope.$close();
@@ -30,10 +30,11 @@ define(['../module', 'moment'], function (module, moment) {
      * Watchers
      */
 
-    $scope.$watchCollection('[selectedTeam, retrospective.date, isScheduling]', function () {
+    $scope.$watchCollection('[retrospective.team, retrospective.date, isScheduling]', function () {
       var dayOfWeek = moment($scope.retrospective.date).format('dddd').toLowerCase();
+      var teamName = _(myTeams).findWhere({ _id: $scope.retrospective.team }).name.toLowerCase();
 
-      $scope.retrospective.name = [dayOfWeek, $scope.selectedTeam.name.toLowerCase(), 'retro'].join('-');
+      $scope.retrospective.name = [dayOfWeek, teamName, 'retro'].join('-');
     });
   });
 });
