@@ -20,7 +20,12 @@ define([
       $stateProvider.state('dashboard', {
         url: '/',
         templateUrl: 'js/modules/dashboard/dashboard.html',
-        controller: 'DashboardCtrl'
+        controller: 'DashboardCtrl',
+        resolve: {
+          retrospectives: function (Retrospective) {
+            return Retrospective.query().$promise;
+          }
+        }
       });
     });
 });

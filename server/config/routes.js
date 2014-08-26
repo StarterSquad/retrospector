@@ -25,6 +25,7 @@ module.exports = function (server) {
   /**
    * Retrospectives
    */
+  server.get('/api/retrospectives', retrospectives.getList);
   server.get('/api/retrospectives/:id', retrospectives.get);
   server.post('/api/retrospectives', retrospectives.create);
 };

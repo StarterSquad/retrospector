@@ -10,6 +10,14 @@ exports.get = function (req, res) {
   })
 };
 
+exports.getList = function (req, res) {
+  Retrospective.find({}, function (err, retrospectives) {
+    if (err) throw new Error(err);
+
+    res.json(retrospectives);
+  })
+};
+
 exports.create = function (req, res) {
   Retrospective.create(req.body, function (err, createdRetrospective) {
     if (err) throw new Error(err);
