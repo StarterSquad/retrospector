@@ -11,6 +11,8 @@ define({
     'async'         : 'vendor/requirejs-plugins/src/async',
     'jquery'        : 'vendor/jquery/dist/jquery',
     'moment'        : 'vendor/moment/min/moment.min',
+    'angular-ui-select2': 'vendor/angular-ui-select2/src/select2',
+    'select2'       : 'vendor/select2/select2',
     'ngResource'    : 'vendor/angular-resource/angular-resource',
     'ngCookies'     : 'vendor/angular-cookies/angular-cookies',
     'ui.router'     : 'vendor/angular-ui-router/release/angular-ui-router',
@@ -23,6 +25,8 @@ define({
       'deps': ['jquery'],
       'exports': 'angular'
     },
+    'angular-ui-select2': ['angular', 'select2'],
+    'select2': ['jquery'],
     'ngResource': ['angular'],
     'ngCookies': ['angular'],
     'ui.router' : ['angular']

@@ -12,6 +12,7 @@
     "angular-cookies": "latest",
     "angular-mocks": "=1.2.16",
     "angular-resource": "=1.2.16",
+    "angular-ui-select2": "latest",
     "angular-ui-router": "=0.2.10",
     "jasmine-matchers": "https://github.com/JamieMason/Jasmine-Matchers.git#=1.20.0",
     "jquery": "=2.1.1",

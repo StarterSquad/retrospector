@@ -1,6 +1,7 @@
 define([
   'angular',
   'ui.router',
+  '../resources/user',
   '../resources/team',
   '../user-manager/index'
 ], function (angular) {
@@ -9,6 +10,7 @@ define([
   return angular.module('app.teams', [
     'ui.router',
     'app.user-manager',
+    'app.resources.user',
     'app.resources.team'
   ])
 

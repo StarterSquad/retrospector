@@ -5,6 +5,7 @@
 define([
   'angular',
   'ui.router',
+  'angular-ui-select2',
   './config',
   './modules/auth/index',
   './modules/dashboard/index',
@@ -21,7 +22,8 @@ define([
     'app.retrospectives',
     'app.teams',
     'app.ui',
-    'ui.router'
+    'ui.router',
+    'ui.select2'
   ])
 
     .config(function ($httpProvider) {

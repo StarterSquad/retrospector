@@ -11,16 +11,14 @@
       </div>
     </div>
     <div class="section grid">
-      <label class="form_label 3 text-right" for="invitations">
-        Invite members
+      <label class="form_label __required 3 text-right">
+        Members
       </label>
       <div class="9">
-        <textarea class="txbox"
-                  id="invitations"
-                  placeholder="emails separated by commas"
-                  ng-model="membersInvitations"
-                  ng-change="parseEmails()"></textarea>
-        <small ng-show="validInvitedMembersEmails.length">{{ validInvitedMembersEmails.length }} invitations will be successfully sent</small>
+        <select style="width: 100%" required ui-select2 multiple ng-model="team.members">
+          <option value=""></option>
+          <option ng-repeat="user in allUsers" value="{{ user._id }}">{{user.fullName}}</option>
+        </select>
       </div>
     </div>
 

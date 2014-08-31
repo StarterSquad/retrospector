@@ -1,7 +1,7 @@
 define(['angular', 'js-md5'], function (angular, md5) {
   'use strict';
 
-  angular.module('ngGravatar', []).directive('ngGravatar', function ($location) {
+  angular.module('ngGravatar', []).directive('ngGravatar', function () {
     return {
       template: '<img src="https://secure.gravatar.com/avatar/{{ imgHash }}?s={{ imgSize }}" alt="gravatarImg" width="{{ imgSize }}px">',
       replace: true,

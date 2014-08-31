@@ -11,7 +11,12 @@ define(['./module', 'underscore'], function (module, _) {
     $scope.openAddTeamModal = function () {
       $modal.open({
         templateUrl: 'js/modules/teams/modals/add-team.html',
-        controller: 'AddTeamCtrl'
+        controller: 'AddTeamCtrl',
+        resolve: {
+          allUsers: function (User) {
+            return User.query().$promise;
+          }
+        }
       })
         .result
         .then(function (createdTeam) {

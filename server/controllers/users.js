@@ -102,3 +102,11 @@ exports.logout = function (req, res) {
 exports.getCurrent = function (req, res) {
   res.json(req.appData.user);
 };
+
+exports.getList = function (req, res) {
+  User.find({}, function (err, users) {
+    if (err) throw new Error(errt);
+
+    res.json(users);
+  })
+};
