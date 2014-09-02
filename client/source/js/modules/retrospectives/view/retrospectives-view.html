@@ -1,3 +1,9 @@
-<pre>
-  {{ retrospective | json }}
-</pre>
+<div class="retrospective">
+  <div class="retrospective_participants text-center">
+    <ng-gravatar class="retrospective_participants_i"
+                 ng-class="{ __idle: participant.isIdle }"
+                 ng-repeat="participant in (retrospective.participants | orderBy:'isIdle') track by participant._id "
+                 email="{{ participant.user.email }}"
+                 size="64"></ng-gravatar>
+  </div>
+</div>

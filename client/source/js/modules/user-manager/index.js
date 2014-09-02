@@ -3,7 +3,7 @@ define(['angular', 'underscore', '../resources/user'], function (angular, _) {
 
   return angular.module('app.user-manager', ['app.resources.user'])
 
-    .service('UserManager', function (User) {
+    .service('UserManager', function (User, socket) {
       var user = {
         isLoggedIn: false,
         clean: function () {
@@ -18,6 +18,7 @@ define(['angular', 'underscore', '../resources/user'], function (angular, _) {
         set: function (data) {
           user.isLoggedIn = true;
           angular.extend(user.data, data);
+          socket.emit('user:login', data._id);
         }
       };
 

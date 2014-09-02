@@ -1,7 +1,7 @@
 define(['./module'], function (module) {
   'use strict';
 
-  module.service('Auth', function ($cookies, $rootScope, $state, $location, User, UserManager) {
+  module.service('Auth', function ($cookies, $rootScope, $state, $location, User, UserManager, socket) {
     var service = {
       goToLogin: function () {
         $state.go('signin');
@@ -19,6 +19,7 @@ define(['./module'], function (module) {
       logout: function () {
         User.logout(function () {
           UserManager.clean();
+          socket.emit('user:logout');
           $state.go('signin');
         });
       },

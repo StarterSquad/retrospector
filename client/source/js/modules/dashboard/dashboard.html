@@ -4,5 +4,5 @@
 
 <h2>Active Retrospectives</h2>
 <div ng-repeat="retrospective in activeRetrospectives">
-  {{ retrospective.name }}
+  <a ui-sref="retrospectives.view({ id: retrospective._id })">{{ retrospective.name }}</a>
 </div>

@@ -7,6 +7,7 @@ define([
   'ui.router',
   'angular-ui-select2',
   './config',
+  './modules/common/socket',
   './modules/auth/index',
   './modules/dashboard/index',
   './modules/retrospectives/index',
@@ -17,6 +18,7 @@ define([
 
   return angular.module('app', [
     'app.auth',
+    'app.common.socket',
     'app.constants',
     'app.dashboard',
     'app.retrospectives',

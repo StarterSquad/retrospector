@@ -1,0 +1,18 @@
+.retrospective {}
+
+.retrospective_participants {}
+
+.retrospective_participants_i {
+  box-shadow: 0 2px 30px rgba(black, .3);
+  border-radius: 50%;
+  transition: opacity 150ms;
+  
+  & + & {
+    margin-left: 10px;
+  }
+
+  &.__idle {
+    opacity: 0.35;
+    box-shadow: none;
+  }
+}

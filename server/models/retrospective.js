@@ -17,9 +17,12 @@ var RetrospectiveSchema = new Schema({
     required: true,
     ref: 'User'
   },
-  guests: [{
-    type: Schema.Types.ObjectId,
-    ref: 'User'
+  participants: [{
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    isIdle: Boolean
   }],
   active: {
     type: Boolean,

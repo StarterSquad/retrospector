@@ -8,5 +8,6 @@
     "reply_address":"no-reply@retrospector.startersquad.com"
   },
   "port": 3000,
+  "idleTimer": 60000,
   "debug": false
 }

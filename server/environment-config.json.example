@@ -14,5 +14,6 @@
     "reply_address":"no-reply@localhost.localdomain"
   },
   "port": 3000,
+  "idleTimer": 60000,
   "debug": true
 }
