@@ -1,4 +1,4 @@
-define(['angular', 'underscore', '../resources/user'], function (angular, _) {
+define(['angular', '_', '../resources/user'], function (angular, _) {
   'use strict';
 
   return angular.module('app.user-manager', ['app.resources.user'])

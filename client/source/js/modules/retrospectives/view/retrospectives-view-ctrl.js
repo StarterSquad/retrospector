@@ -1,4 +1,4 @@
-define(['./module', 'underscore'], function (module, _) {
+define(['./module', '_'], function (module, _) {
   'use strict';
 
   module.controller('RetrospectivesViewCtrl', function ($scope, UserManager, socket, retrospective) {

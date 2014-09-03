@@ -1,4 +1,4 @@
-define(['./module'], function (module) {
+define(['./module', '_'], function (module, _) {
   'use strict';
 
   module.controller('DashboardCtrl', function ($scope, $modal, retrospectives) {

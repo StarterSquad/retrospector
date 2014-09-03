@@ -1,4 +1,4 @@
-define(['./module', 'underscore'], function (module, _) {
+define(['./module'], function (module) {
   'use strict';
 
   module.controller('TeamsCtrl', function ($scope, $modal, myTeams) {

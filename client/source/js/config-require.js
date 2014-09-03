@@ -16,7 +16,7 @@ define({
     'ngResource'    : 'vendor/angular-resource/angular-resource',
     'ngCookies'     : 'vendor/angular-cookies/angular-cookies',
     'ui.router'     : 'vendor/angular-ui-router/release/angular-ui-router',
-    'underscore'    : 'vendor/underscore/underscore',
+    '_'    : 'vendor/underscore/underscore',
     'js-md5'        : 'vendor/js-md5/js/md5'
   },
 
