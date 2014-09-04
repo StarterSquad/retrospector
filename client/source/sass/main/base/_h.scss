@@ -1,0 +1,15 @@
+// h1, h2, ...
+// ====
+
+h1 {
+  background: $color-second;
+  font-size: 21px;
+  font-weight: normal;
+  line-height: 1.25;
+
+  // Fix space around header
+  margin: -20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  padding-bottom: 18px;
+}

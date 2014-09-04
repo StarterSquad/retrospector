@@ -27,30 +27,48 @@
 <body ng-cloak>
   <!-- Header -->
   <div class="header" ng-controller="HeaderCtrl" ng-show="UserManage.isLoggedIn">
-    <div class="wrap">
-      <div class="grid">
-        <div class="3">
-          <i class="header_logo logo"></i>
-        </div>
-        <div class="9">
-          <menu class="header_menu float-right">
-            <menu-i sref="dashboard">Dashboard</menu-i>
-            <menu-i sref="teams">My teams</menu-i>
-            <menu-i sref="settings">Settings</menu-i>
-            <li class="menu_i">
-              <a class="menu_i_inner link __black __complex" ng-click="logout()">
-                <u class="link_u">Sign out</u>
-              </a>
-            </li>
-          </menu>
-        </div>
-      </div>
-    </div>
+    <ul class="header_menu">
+      <li class="header_menu_i">
+        <a ui-sref="dashboard" class="header_menu_i_a">
+          <b>Retrospector</b>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="header_menu float-right">
+      <li class="header_menu_i">
+        <a class="header_menu_i_a">Retrospectives</a>
+      </li>
+      <li class="header_menu_i">
+        <a class="header_menu_i_a" ui-sref="teams">My teams</a>
+      </li>
+      <li class="header_menu_i">
+        <a class="header_menu_i_a">Settings</a>
+      </li>
+      <li class="header_menu_i">
+        <a class="header_menu_i_a" ng-click="logout()">Logout</a>
+      </li>
+    </ul>
   </div>
-  <div class="header-push"></div>
 
   <!-- Content -->
-  <div class="section __head __foot wrap" ui-view></div>
+  <div class="section wrap" ui-view></div>
+
+ <!-- Footer -->
+  <footer class="footer">
+    <div class="section">
+      The simplest retrospective tool powered by <a href="//startersquad.com" target="_blank">StarterSquad</a>
+    </div>
+    <div class="section">
+      <a href="#">about</a>
+      <a href="#">terms</a>
+      <a href="#">report an issue</a>
+      <a href="#">contact</a>
+    </div>
+    <a class="section footer_ssq-logo" href="//startersquad.com" target="_blank">
+      <img src="https://avatars3.githubusercontent.com/u/3200254?v=2&s=200" alt="StarterSquad" width="64px">
+    </a>
+  </footer>
 
   <!-- Scripts -->
   <script src="vendor/requirejs/require.js"></script>

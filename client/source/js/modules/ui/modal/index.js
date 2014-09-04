@@ -64,30 +64,22 @@ define(['angular'], function (angular) {
   /**
    * A helper directive for the $modal service. It creates a backdrop element.
    */
-  .directive('modalBackdrop', ['$timeout', function ($timeout) {
+  .directive('modalBackdrop', function () {
     return {
       restrict: 'EA',
       replace: true,
       templateUrl: '/js/modules/ui/modal/backdrop.html',
       link: function (scope, element, attrs) {
         scope.backdropClass = attrs.backdropClass || '';
-
-        scope.animate = false;
-
-        //trigger CSS transitions
-        $timeout(function () {
-          scope.animate = true;
-        });
       }
     };
-  }])
+  })
 
   .directive('modalWindow', ['$modalStack', '$timeout', function ($modalStack, $timeout) {
     return {
       restrict: 'EA',
       scope: {
-        index: '@',
-        animate: '='
+        index: '@'
       },
       replace: true,
       transclude: true,
@@ -99,8 +91,6 @@ define(['angular'], function (angular) {
         scope.size = attrs.size;
 
         $timeout(function () {
-          // trigger CSS transitions
-          scope.animate = true;
           // focus a freshly-opened modal
           element[0].focus();
         });
@@ -163,7 +153,7 @@ define(['angular'], function (angular) {
         openedWindows.remove(modalInstance);
 
         //remove window DOM element
-        removeAfterAnimate(modalWindow.modalDomEl, modalWindow.modalScope, 300, function () {
+        removeAfterAnimate(modalWindow.modalDomEl, modalWindow.modalScope, 0, function () {
           modalWindow.modalScope.$destroy();
           body.toggleClass(OPENED_MODAL_CLASS, openedWindows.length() > 0);
           checkRemoveBackdrop();
@@ -174,7 +164,7 @@ define(['angular'], function (angular) {
           //remove backdrop if no longer needed
           if (backdropDomEl && backdropIndex() == -1) {
             var backdropScopeRef = backdropScope;
-            removeAfterAnimate(backdropDomEl, backdropScope, 150, function () {
+            removeAfterAnimate(backdropDomEl, backdropScope, 0, function () {
               backdropScopeRef.$destroy();
               backdropScopeRef = null;
             });
@@ -184,9 +174,6 @@ define(['angular'], function (angular) {
       }
 
       function removeAfterAnimate(domEl, scope, emulateTime, done) {
-        // Closing animation
-        scope.animate = false;
-
         var transitionEndEventName = $transition.transitionEndEventName;
         if (transitionEndEventName) {
           // transition out
@@ -255,8 +242,7 @@ define(['angular'], function (angular) {
           'template-url': modal.windowTemplateUrl,
           'window-class': modal.windowClass,
           'size': modal.size,
-          'index': openedWindows.length() - 1,
-          'animate': 'animate'
+          'index': openedWindows.length() - 1
         }).html(modal.content);
 
         var modalDomEl = $compile(angularDomEl)(modal.scope);

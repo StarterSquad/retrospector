@@ -33,7 +33,7 @@
   }
 
   &.__blue {
-    @include link-color($color-blue);
+    @include link-color($color-primary);
   }
 
   &.__white {

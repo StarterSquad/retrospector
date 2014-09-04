@@ -1,20 +1,38 @@
 // Header
 // ======
 
-.header,
-.header-push {
-  height: 96px;
-}
-
 .header {
-  @include position(fixed, 0 0 none);
-  background: #f7f7f7;
-  padding: 24px 0;
-  z-index: 1000;
+  background: $color-primary;
+  border-bottom: 1px solid darken($color-primary, 10%);
+  color: #fff;
+  padding: 0 10px;
+  height: 41px;
+  font: 14px Arial, sans-serif;
 
   &_logo {}
 
   &_menu {
-    margin-top: 9px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &_i {
+      float: left;
+      list-style: none;
+
+      &_a {
+        cursor: pointer;
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        line-height: 1;
+        padding: 13px 10px;
+        transition: background 100ms;
+
+        &:hover {
+          background: lighten($color-primary, 6%);
+        }
+      }
+    }
   }
 }

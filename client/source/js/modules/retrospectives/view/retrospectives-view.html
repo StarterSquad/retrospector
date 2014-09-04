@@ -1,9 +1,12 @@
-<div class="retrospective">
+<div class="retrospective" reset-idle="{{ retrospective._id }}">
   <div class="retrospective_participants text-center">
     <ng-gravatar class="retrospective_participants_i"
                  ng-class="{ __idle: participant.isIdle }"
-                 ng-repeat="participant in (retrospective.participants | orderBy:'isIdle') track by participant._id "
+                 ng-repeat="participant in (retrospective.participants | orderBy:'isIdle') track by participant.user._id"
                  email="{{ participant.user.email }}"
                  size="64"></ng-gravatar>
   </div>
+
+  Start typing to
+  <button ng-click="launchFullscreen()">Full screen</button>
 </div>

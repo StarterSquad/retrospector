@@ -8,6 +8,7 @@ define([
   'angular-ui-select2',
   './config',
   './modules/common/socket',
+  './modules/common/reset-idle-directive',
   './modules/auth/index',
   './modules/dashboard/index',
   './modules/retrospectives/index',
@@ -19,6 +20,7 @@ define([
   return angular.module('app', [
     'app.auth',
     'app.common.socket',
+    'app.common.reset-idle',
     'app.constants',
     'app.dashboard',
     'app.retrospectives',

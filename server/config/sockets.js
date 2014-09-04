@@ -49,10 +49,12 @@ module.exports = function (io) {
       retrospectives.addParticipant(data.retrospectiveId, data.user._id, function (err) {
         if (err) throw new Error(err);
 
-        socket.to(data.retrospectiveId).emit('retrospective:userJoined', data.user);
+        io.sockets.to(data.retrospectiveId).emit('retrospective:userJoined', data.user);
         resetIdle(data.retrospectiveId);
       });
     });
+
+//    socket.on('user:resetIdle', resetIdle);
 
     socket.on('disconnect', function () {
       disconnectUser(sessionId);

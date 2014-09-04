@@ -1,0 +1,32 @@
+// Footer
+// ======
+
+.footer {
+  background: $color-second;
+  color: #707070;
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
+
+  a, a:visited {
+    color: #707070;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a + a {
+    margin-left: 15px;
+  }
+
+  &_ssq-logo {
+    display: block;
+    filter: grayscale(100%);
+
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+}
