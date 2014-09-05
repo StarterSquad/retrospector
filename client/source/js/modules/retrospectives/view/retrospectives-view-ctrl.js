@@ -5,6 +5,19 @@ define(['./module', 'underscore'], function (module, _) {
     $scope.retrospective = retrospective;
 
     /**
+     * Methods
+     */
+    
+    $scope.addNewItem = function ($event) {
+      var code = $event.keyCode || $event.which;
+
+      if (code === 9 || code === 13) {
+        $event.preventDefault();
+        return;
+      }
+    };
+
+    /**
      * Handlers
      */
 

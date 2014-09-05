@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-class="{ __white: fullscreen.isEntered }">
+<html ng-class="{ __white: ('retrospectives.view' | includedByState) }">
 <head>
   <meta charset="utf-8">
   <title>Retrospector</title>
@@ -55,7 +55,7 @@
   <div class="section wrap" ui-view></div>
 
  <!-- Footer -->
-  <footer class="footer" ng-hide="fullscreen.isEntered">
+  <footer class="footer" ng-hide="'retrospectives.view' | includedByState">
     <div class="section">
       The simplest retrospective tool powered by <a href="//startersquad.com" target="_blank">StarterSquad</a>
     </div>

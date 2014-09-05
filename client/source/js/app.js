@@ -7,6 +7,7 @@ define([
   'ui.router',
   'angular-ui-select2',
   './config',
+  './modules/common/directives',
   './modules/common/socket',
   './modules/common/reset-idle-directive',
   './modules/auth/index',
@@ -19,6 +20,7 @@ define([
 
   return angular.module('app', [
     'app.auth',
+    'app.common.directives',
     'app.common.socket',
     'app.common.reset-idle',
     'app.constants',

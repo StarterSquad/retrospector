@@ -1,4 +1,6 @@
-.retrospective {}
+.retrospective {
+  margin-bottom: 20px;
+}
 
 .retrospective_participants {
   margin-bottom: 25px;
@@ -7,14 +9,155 @@
 .retrospective_participants_i {
   box-shadow: 0 2px 30px rgba(black, .3);
   border-radius: 50%;
-  transition: opacity 150ms;
-  
+  transition: all 150ms;
+  cursor: pointer;
+
   & + & {
     margin-left: 10px;
   }
 
   &.__idle {
+    filter: blur(5px);
     opacity: 0.35;
     box-shadow: none;
+
+    &:hover {
+      filter: blur(0);
+    }
+  }
+}
+
+.retrospective_block {
+  transition: all 300ms;
+  max-width: 790px;
+  margin: 0 auto;
+  text-align: left;
+
+  &_header {
+    font-size: 27px;
+    font-weight: normal;
+    font-family: Georgia;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  &_footer {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  &_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &_i {
+      cursor: pointer;
+      font-style: 15px;
+
+      // Override default value
+      .elastic_col + .elastic_col {
+        padding-left: 10px;
+      }
+
+      &_avatar {
+        width: 32px;
+
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      &_like-section {
+        opacity: 0;
+        padding-top: 7px;
+        transition: opacity 150ms;
+        width: 25px;
+      }
+
+      &:hover &_like-section {
+        opacity: 1;
+      }
+
+      &_text {
+        padding-top: 6px;
+      }
+
+      &_add-new {
+        background: transparent;
+        border: none;
+        width: 99%;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      & + & {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  &.__compressed {
+    color: #bbb;
+
+    .retrospective_block_header {
+      margin-top: 20px;
+    }
+
+    .retrospective_block_list_i + .retrospective_block_list_i {
+      margin-top: -15px;
+      animation: compress 300ms;
+    }
+
+    .retrospective_block_list_i_text {
+      white-space: nowrap;
+
+      &:not(:hover) {
+        display: block;
+        width: 732px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .retrospective_block_list_i_avatar img {
+      filter: grayscale(70%);
+    }
+  }
+}
+
+.caret {
+  display: inline-block;
+  width: 2px;
+  margin-bottom: -3px;
+  height: 16px;
+
+  animation: pulsate 1s linear infinite;
+}
+
+@keyframes pulsate {
+  0% {
+    background: #444;
+  }
+  40% {
+    background: #444;
+  }
+  50% {
+    background: transparent;
+  }
+  90% {
+    background: transparent;
+  }
+}
+
+@keyframes compress {
+  0% {
+    margin-top: 5px;
+  }
+  100% {
+    margin-top: -15px;
   }
 }
