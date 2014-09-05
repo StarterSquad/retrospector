@@ -22,7 +22,8 @@
   }
 
   &_ssq-logo {
-    display: block;
+    display: inline-block;
+    margin-top: 15px;
     filter: grayscale(100%);
 
     &:hover {
