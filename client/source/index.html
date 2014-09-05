@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-class="{ __white: fullscreen.isEntered }">
 <head>
   <meta charset="utf-8">
   <title>Retrospector</title>
@@ -26,7 +26,7 @@
 </head>
 <body ng-cloak>
   <!-- Header -->
-  <div class="header" ng-controller="HeaderCtrl" ng-show="UserManage.isLoggedIn">
+  <div class="header" ng-controller="HeaderCtrl" ng-show="UserManage.isLoggedIn && !fullscreen.isEntered">
     <ul class="header_menu">
       <li class="header_menu_i">
         <a ui-sref="dashboard" class="header_menu_i_a">
@@ -55,7 +55,7 @@
   <div class="section wrap" ui-view></div>
 
  <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" ng-hide="fullscreen.isEntered">
     <div class="section">
       The simplest retrospective tool powered by <a href="//startersquad.com" target="_blank">StarterSquad</a>
     </div>

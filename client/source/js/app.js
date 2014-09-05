@@ -63,7 +63,7 @@ define([
       $urlRouterProvider.otherwise('/');
     })
 
-    .run(function ($location, $rootScope, $state, $modalStack, Auth, UserManager) {
+    .run(function ($location, $rootScope, $state, $modalStack, Auth, UserManager, fullscreen) {
       if (window.user) {
         UserManager.set(window.user);
         delete window.user;
@@ -78,6 +78,8 @@ define([
 
         $modalStack.dismissAll();
       });
+
+      $rootScope.fullscreen = fullscreen;
     })
 
     .controller('HeaderCtrl', function ($scope, Auth, UserManager) {

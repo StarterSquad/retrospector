@@ -13,6 +13,10 @@ html {
   font: 14px/1.4 Arial, sans-serif;
   overflow-y: scroll;
   background: $color-second;
+
+  &.__white {
+    background: white;
+  }
 }
 
 // Remove text-shadow in selection highlight: h5bp.com/i

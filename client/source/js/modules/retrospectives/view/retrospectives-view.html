@@ -1,5 +1,5 @@
-<div class="retrospective" reset-idle="{{ retrospective._id }}">
-  <div class="retrospective_participants text-center">
+<div class="retrospective text-center" reset-idle="{{ retrospective._id }}">
+  <div class="retrospective_participants">
     <ng-gravatar class="retrospective_participants_i"
                  ng-class="{ __idle: participant.isIdle }"
                  ng-repeat="participant in (retrospective.participants | orderBy:'isIdle') track by participant.user._id"
@@ -7,6 +7,8 @@
                  size="64"></ng-gravatar>
   </div>
 
-  Start typing to
-  <button ng-click="launchFullscreen()">Full screen</button>
+  <a class="link __black __complex" ng-click="fullscreen.toggle()" ng-hide="fullscreen.isEntered">
+    <img src="https://www.laga.nl/img/fullscr.png" alt="Enter fullscreen"><br/>
+    <span class="link_u">Enter full screen</span>
+  </a>
 </div>

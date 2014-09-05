@@ -1,7 +1,7 @@
 define(['./module', 'underscore'], function (module, _) {
   'use strict';
 
-  module.controller('RetrospectivesViewCtrl', function ($scope, UserManager, socket, retrospective) {
+  module.controller('RetrospectivesViewCtrl', function ($scope, UserManager, socket, retrospective, fullscreen) {
     $scope.retrospective = retrospective;
 
     /**
@@ -39,18 +39,6 @@ define(['./module', 'underscore'], function (module, _) {
       user: UserManager.data
     });
 
-    $scope.launchFullscreen = function () {
-      var element = document.documentElement;
-
-      if (element.requestFullscreen) {
-        element.requestFullscreen();
-      } else if (element.mozRequestFullScreen) {
-        element.mozRequestFullScreen();
-      } else if (element.webkitRequestFullscreen) {
-        element.webkitRequestFullscreen();
-      } else if (element.msRequestFullscreen) {
-        element.msRequestFullscreen();
-      }
-    };
+    $scope.fullscreen = fullscreen;
   });
 });
