@@ -1,7 +1,33 @@
-<h1>My teams</h1>
+<div class="team">
+  <div class="grid">
+    <div class="3" ng-repeat="team in teams">
+      <div class="team-card">
+        <div class="team-card_header">
+          {{ team.name }}
+        </div>
 
-<button class="btn" ng-click="openAddTeamModal()">Add team</button>
+        <div class="team-card_body">
+          Last retrospective: Yesterday
+          <br/>
+          Member: {{ team.members.length }}
+        </div>
 
-<ul ng-show="teams.length">
-  <li ng-repeat="team in teams"><a href="#">{{ team.name }}</a></li>
-</ul>
+        <div class="team-card_footer">
+          <img class="team-card_footer_img" src="http://lorempixel.com/32/32/people/?1">
+          <img class="team-card_footer_img" src="http://lorempixel.com/32/32/people/?2">
+          <img class="team-card_footer_img" src="http://lorempixel.com/100/100/people/?3">
+          <img class="team-card_footer_img" src="http://lorempixel.com/32/32/people/?4">
+          <img class="team-card_footer_img" src="http://lorempixel.com/32/32/people/?1">
+          <img class="team-card_footer_img" src="http://lorempixel.com/32/32/people/?2">
+          <img class="team-card_footer_img" src="http://lorempixel.com/100/100/people/?3">
+          <img class="team-card_footer_img" src="http://lorempixel.com/32/32/people/?4">
+          &nbsp;
+        </div>
+      </div>
+    </div>
+
+    <div class="3">
+      <div class="team-card __add-team" ng-click="openAddTeamModal()">+</div>
+    </div>
+  </div>
+</div>

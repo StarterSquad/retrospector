@@ -1,0 +1,58 @@
+.team {
+  padding: 15px 0;
+  
+  &-card {
+    transition: background 100ms;
+    background: lighten($color-primary, 7%);
+    color: white;
+    border-radius: 3px;
+    text-shadow: 0 1px 2px black;
+    cursor: pointer;
+
+    &_header {
+      font-size: 19px;
+      padding: 10px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &_body {
+      padding: 10px;
+      padding-top: 0;
+      font-size: 13px;
+    }
+
+    &_footer {
+      @extend .cf;
+      padding: 5px 8px;
+      background: $color-second;
+      color: black;
+      overflow-x: scroll;
+      white-space: nowrap;
+
+      &_img {
+        max-height: 32px;
+        border-radius: 2px;
+      }
+    }
+
+    & + & {
+      margin-left: 15px;
+    }
+
+    &:hover {
+      background: $color-primary;
+    }
+
+    &.__add-team {
+      @include size(134px);
+      text-align: center;
+      font-size: 59px;
+      padding: 27px 0;
+    }
+  }
+
+  .grid .#{escape-css(3)}:nth-child(1n + 5) {
+    margin-top: $layout-gutter;
+  }
+}
