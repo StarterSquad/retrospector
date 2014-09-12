@@ -9,8 +9,6 @@
   height: 41px;
   font: 14px Arial, sans-serif;
 
-  &_logo {}
-
   &_menu {
     list-style: none;
     padding: 0;
@@ -28,9 +26,14 @@
         line-height: 1;
         padding: 13px 10px;
         transition: background 100ms;
+        
+        &.__header-logo {
+          padding-top: 12px;
+          padding-bottom: 10px;
+        }
 
         &:hover {
-          background: lighten($color-primary, 6%);
+          background-color: lighten($color-primary, 6%);
         }
       }
     }

@@ -5,6 +5,8 @@
   <title>Retrospector</title>
   <link rel="stylesheet" href="assets/css/main.css?bust=v0.4.0">
 
+  <link rel="shortcut icon" href="assets/images/base/icon/favicon.ico">
+
   <style>
     [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
       display: none !important;
@@ -29,8 +31,8 @@
   <div class="header" ng-controller="HeaderCtrl" ng-show="UserManage.isLoggedIn && !fullscreen.isEntered">
     <ul class="header_menu">
       <li class="header_menu_i">
-        <a ui-sref="dashboard" class="header_menu_i_a">
-          <b>Retrospector</b>
+        <a ui-sref="dashboard" class="header_menu_i_a __header-logo">
+          <i class="logo __white __s"></i>
         </a>
       </li>
     </ul>

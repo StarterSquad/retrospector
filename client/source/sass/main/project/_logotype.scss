@@ -2,10 +2,10 @@
 // ========
 
 .logo {
-  $svg-height: 24px;
-  $svg-width: 77px;
+  $orig-height: 30px;
+  $orig-width: 207px;
   @extend .logo.__m;
-  background-image: inline-asset('project/logo/logo.svg');
+  background-image: inline-asset('project/logo/black-logo.png');
   background-repeat: no-repeat;
   background-size: 100% auto;
   display: inline-block;
@@ -13,17 +13,21 @@
   &:after {
     content: '';
     display: block;
-    padding-top: 100% * ($svg-height / $svg-width);
+    padding-top: 100% * ($orig-height / $orig-width);
   }
 
   // Modifiers
   // ---------
 
   &.__s {
-    width: 102px;
+    width: 124px;
   }
 
   &.__m {
-    width: 154px;
+    width: 206px;
+  }
+
+  &.__white {
+    background-image: inline-asset('project/logo/white-logo.png');
   }
 }
