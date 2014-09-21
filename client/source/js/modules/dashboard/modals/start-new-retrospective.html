@@ -4,29 +4,28 @@
 <div class="modal-body">
   <form class="form" name="StartNewRetrospectiveForm">
     <div class="section grid">
+      <label class="form_label 3 text-right" for="name">Name</label>
+      <div class="9">
+        <input type="text" class="txbox" id="name" ng-model="retrospective.name">
+      </div>
+    </div>
+
+    <div class="section grid">
       <label class="form_label 3 text-right">Team</label>
       <div class="4">
         <select class="txbox" ng-model="retrospective.team" ng-options="team._id as team.name for team in myTeams"></select>
       </div>
     </div>
-    <div class="section grid">
-      <label class="form_label 3 text-right" for="invitations">
-        Invite other members
-      </label>
-      <div class="9">
-        <textarea class="txbox"
-                  id="invitations"
-                  placeholder="emails separated by commas"
-                  ng-model="membersInvitations"
-                  ng-change="parseEmails()"></textarea>
-        <small ng-show="validInvitedMembersEmails.length">{{ validInvitedMembersEmails.length }} invitations will be successfully sent</small>
-      </div>
-    </div>
 
     <div class="section grid">
-      <label class="form_label __required 3 text-right" for="name">Retrospective name</label>
+      <label class="form_label 3 text-right">
+        Guests
+      </label>
       <div class="9">
-        <input type="text" class="txbox" id="name" ng-model="retrospective.name" required>
+        <select style="width: 100%" required ui-select2 multiple ng-model="team.members">
+          <option value=""></option>
+          <option ng-repeat="user in allUsers" value="{{ user._id }}">{{user.fullName}}</option>
+        </select>
       </div>
     </div>
 

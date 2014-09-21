@@ -61,6 +61,7 @@
     background: lighten($color-primary, 5%);
     border: 1px solid darken($color-primary, 7%);
     color: white;
+    text-shadow: 0 1px 2px black;
 
     &.__active,
     &:active:not(:disabled) {

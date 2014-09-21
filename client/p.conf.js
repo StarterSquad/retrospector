@@ -1,7 +1,7 @@
 // Protractor configuration file.
 exports.config = {
 
-  baseUrl: 'http://ngseed.dev',
+  baseUrl: 'http://retrospector.dev',
 
   // The address of a running selenium server.
   seleniumAddress: 'http://127.0.0.1:4444/wd/hub',

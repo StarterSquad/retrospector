@@ -8,6 +8,7 @@
   padding: 0 10px;
   height: 41px;
   font: 14px Arial, sans-serif;
+  text-shadow: 0 1px 2px black;
 
   &_menu {
     list-style: none;
@@ -26,7 +27,7 @@
         line-height: 1;
         padding: 13px 10px;
         transition: background 100ms;
-        
+
         &.__header-logo {
           padding-top: 12px;
           padding-bottom: 10px;
@@ -37,5 +38,22 @@
         }
       }
     }
+  }
+
+  &_search {
+    border-radius: 3px;
+    background: darken($color-primary, 7%) url("http://www.iconsdb.com/icons/preview/caribbean-blue/search-2-xxl.png") no-repeat center right 8px;
+    background-size: auto 15px;
+    border: none;
+    font-size: 13px;
+    height: 30px;
+    padding-right: 30px;
+    padding-left: 8px;
+    width: 180px;
+    outline: none;
+    margin: 0;
+    margin-top: 5px;
+    margin-left: 10px;
+    cursor: pointer;
   }
 }

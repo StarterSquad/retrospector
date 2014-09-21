@@ -31,10 +31,10 @@ define(['../module', 'moment'], function (module, moment) {
      */
 
     $scope.$watchCollection('[retrospective.team, retrospective.date, isScheduling]', function () {
-      var dayOfWeek = moment($scope.retrospective.date).format('dddd').toLowerCase();
-      var teamName = _(myTeams).findWhere({ _id: $scope.retrospective.team }).name.toLowerCase();
+      var dayOfWeek = moment($scope.retrospective.date).format('dddd');
+      var teamName = _(myTeams).findWhere({ _id: $scope.retrospective.team }).name;
 
-      $scope.retrospective.name = [dayOfWeek, teamName, 'retro'].join('-');
+      $scope.retrospective.name = [dayOfWeek, teamName, 'retro'].join(' ');
     });
   });
 });
