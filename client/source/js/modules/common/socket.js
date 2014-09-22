@@ -4,7 +4,7 @@ define(['angular', '/socket.io/socket.io.js'], function (angular, io) {
   angular.module('app.common.socket', [])
 
     .factory('socket', function ($rootScope) {
-      var socket = io();
+      var socket = io.connect();
 
       return {
         on: function (eventName, callback) {
