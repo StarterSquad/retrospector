@@ -26,7 +26,7 @@ describe('Teams', function () {
   });
 
   describe('Edit team', function () {
-    var teamName;
+    var teamName, editTeamModal;
 
     beforeEach(function () {
       var teamCardElement = element(by.css('.team-card'));
@@ -36,13 +36,17 @@ describe('Teams', function () {
     });
 
     it('should open Edit Team modal window', function () {
-      var editTeamModal = element(by.css('.modal'));
+      editTeamModal = element(by.css('.modal'));
 
       expect(editTeamModal.isDisplayed()).toBe(true);
     });
 
     it('should populate team name field properly', function () {
       expect(element(by.model('team.name')).getAttribute('value')).toBe(teamName);
+    });
+
+    it('should close modal window after saving', function () {
+      editTeamModal.element(by.css('button.save-team')).click();
     });
   });
 });

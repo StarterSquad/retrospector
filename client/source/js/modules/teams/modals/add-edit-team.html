@@ -35,19 +35,8 @@
         <input type="text" class="txbox" id="googleCalendarApiKey" ng-model="team.googleCalendarApiKey">
       </div>
     </div>
-
-    <div class="section grid">
-      <div class="++3 9">
-        <label class="checkbox-inline">
-          <input type="checkbox" required ng-model="user.accepted" class>
-          I agree to the
-          <span class="link __blue">Terms and conditions</span>
-        </label>
-      </div>
-    </div>
   </form>
 </div>
-<div class="modal-footer text-right">
-  <button class="btn" ng-click="$close()">Close</button>
+<div class="modal-footer">
   <button class="btn" ng-disabled="AddTeamForm.$invalid" ng-click="addTeam()">Add team</button>
 </div>

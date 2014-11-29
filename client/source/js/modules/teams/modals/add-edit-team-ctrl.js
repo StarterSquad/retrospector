@@ -18,5 +18,11 @@ define(['../module', 'underscore'], function (module, _) {
         $scope.$close(createdTeam);
       })
     };
+
+    $scope.saveTeam = function () {
+      $scope.team.$update(function () {
+        $scope.$close();
+      });
+    };
   });
 });

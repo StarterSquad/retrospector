@@ -2,13 +2,17 @@
 // ======
 
 .header {
+  @include font-smoothing(on);
   background: $color-primary;
-  border-bottom: 1px solid darken($color-primary, 10%);
-  color: #fff;
   padding: 0 10px;
   height: 41px;
-  font: 14px Arial, sans-serif;
-  text-shadow: 0 1px 2px black;
+  font-weight: bold;
+  color: #E8EFF7;
+
+  &_wrap {
+    width: 760px;
+    margin: 0 auto;
+  }
 
   &_menu {
     list-style: none;
@@ -20,11 +24,10 @@
       list-style: none;
 
       &_a {
+        color: #E8EFF7;
         cursor: pointer;
         text-decoration: none;
-        color: #fff;
         display: block;
-        line-height: 1;
         padding: 13px 10px;
         transition: background 100ms;
 
@@ -45,7 +48,6 @@
     background: darken($color-primary, 7%) url("http://www.iconsdb.com/icons/preview/caribbean-blue/search-2-xxl.png") no-repeat center right 8px;
     background-size: auto 15px;
     border: none;
-    font-size: 13px;
     height: 30px;
     padding-right: 30px;
     padding-left: 8px;

@@ -29,32 +29,34 @@
 <body ng-cloak>
   <!-- Header -->
   <div class="header" ng-controller="HeaderCtrl" ng-show="UserManage.isLoggedIn && !fullscreen.isEntered">
-    <ul class="header_menu">
-      <li class="header_menu_i">
-        <a ui-sref="dashboard" class="header_menu_i_a __header-logo">
-          <i class="logo __white __s"></i>
-        </a>
-      </li>
-      <!-- TODO prettify and implement searching -->
-      <!--<li class="header_menu_i">-->
+    <div class="header_wrap">
+      <ul class="header_menu">
+        <li class="header_menu_i">
+          <a ui-sref="dashboard" class="header_menu_i_a __header-logo">
+            <i class="logo __white __s"></i>
+          </a>
+        </li>
+        <!-- TODO prettify and implement searching -->
+        <!--<li class="header_menu_i">-->
         <!--<input class="header_search">-->
-      <!--</li>-->
-    </ul>
+        <!--</li>-->
+      </ul>
 
-    <ul class="header_menu float-right">
-      <li class="header_menu_i">
-        <a class="header_menu_i_a">Retrospectives</a>
-      </li>
-      <li class="header_menu_i">
-        <a class="header_menu_i_a" ui-sref="teams">My teams</a>
-      </li>
-      <li class="header_menu_i">
-        <a class="header_menu_i_a">Settings</a>
-      </li>
-      <li class="header_menu_i">
-        <a class="header_menu_i_a" ng-click="logout()">Log out</a>
-      </li>
-    </ul>
+      <ul class="header_menu float-right">
+        <li class="header_menu_i">
+          <a class="header_menu_i_a">Retrospectives</a>
+        </li>
+        <li class="header_menu_i">
+          <a class="header_menu_i_a" ui-sref="teams">My teams</a>
+        </li>
+        <li class="header_menu_i">
+          <a class="header_menu_i_a">Settings</a>
+        </li>
+        <li class="header_menu_i">
+          <a class="header_menu_i_a" ng-click="logout()">Log out</a>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <!-- Content -->
@@ -71,9 +73,6 @@
       <a href="#">Report an issue</a>
       <a href="#">Contacts</a>
     </div>
-    <a class="footer_ssq-logo" href="//startersquad.com" target="_blank">
-      <img src="https://avatars3.githubusercontent.com/u/3200254?v=2&s=200" alt="StarterSquad" width="64px">
-    </a>
   </footer>
 
   <!-- Scripts -->

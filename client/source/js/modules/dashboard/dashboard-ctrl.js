@@ -16,7 +16,8 @@ define(['./module'], function (module) {
           myTeams: function (Team, UserManager) {
             return Team.query({ member: UserManager.data._id }).$promise;
           }
-        }
+        },
+        size: 'small'
       })
     };
   });
