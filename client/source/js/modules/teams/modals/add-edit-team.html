@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <span class="modal-title">Add team</span>
+  <span class="modal-title">{{ team._id ? 'Edit' : 'Add' }} team</span>
 </div>
 <div class="modal-body">
   <!-- Add Team Form -->
@@ -7,7 +7,7 @@
     <div class="section grid">
       <label class="form_label __required 3 text-right" for="first_name">Team name</label>
       <div class="9">
-        <input type="text" class="txbox" id="first_name" ng-model="team.name" required="">
+        <input type="text" class="txbox" id="first_name" ng-model="team.name" required>
       </div>
     </div>
     <div class="section grid">
@@ -17,7 +17,7 @@
       <div class="9">
         <select style="width: 100%" required ui-select2 multiple ng-model="team.members">
           <option value=""></option>
-          <option ng-repeat="user in allUsers" value="{{ user._id }}">{{user.fullName}}</option>
+          <option ng-repeat="user in allUsers" value="{{ user._id }}">{{ user.fullName }}</option>
         </select>
       </div>
     </div>
@@ -35,19 +35,8 @@
         <input type="text" class="txbox" id="googleCalendarApiKey" ng-model="team.googleCalendarApiKey">
       </div>
     </div>
-
-    <div class="section grid">
-      <div class="++3 9">
-        <label class="checkbox-inline">
-          <input type="checkbox" required="" ng-model="user.accepted" class="">
-          I agree to the
-          <span class="link __blue">Terms and conditions</span>
-        </label>
-      </div>
-    </div>
   </form>
 </div>
-<div class="modal-footer text-right">
-  <button class="btn" ng-click="$close()">Close</button>
+<div class="modal-footer">
   <button class="btn" ng-disabled="AddTeamForm.$invalid" ng-click="addTeam()">Add team</button>
 </div>

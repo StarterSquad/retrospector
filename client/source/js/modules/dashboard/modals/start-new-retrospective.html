@@ -1,31 +1,12 @@
 <div class="modal-header">
-  <span class="modal-title">Start new retrospective</span>
+  <span class="modal-title">{{ isScheduling ? 'Schedule' : 'Start' }} {{ retrospective.name }} retrospective</span>
 </div>
 <div class="modal-body">
   <form class="form" name="StartNewRetrospectiveForm">
     <div class="section grid">
-      <label class="form_label 3 text-right" for="name">Name</label>
-      <div class="9">
-        <input type="text" class="txbox" id="name" ng-model="retrospective.name">
-      </div>
-    </div>
-
-    <div class="section grid">
       <label class="form_label 3 text-right">Team</label>
       <div class="4">
         <select class="txbox" ng-model="retrospective.team" ng-options="team._id as team.name for team in myTeams"></select>
-      </div>
-    </div>
-
-    <div class="section grid">
-      <label class="form_label 3 text-right">
-        Guests
-      </label>
-      <div class="9">
-        <select style="width: 100%" required ui-select2 multiple ng-model="team.members">
-          <option value=""></option>
-          <option ng-repeat="user in allUsers" value="{{ user._id }}">{{user.fullName}}</option>
-        </select>
       </div>
     </div>
 
@@ -47,9 +28,8 @@
     </div>
   </form>
 </div>
-<div class="modal-footer text-right">
-  <button class="btn" ng-click="$close()">Cancel</button>
-  <button class="btn __blue" ng-disabled="StartNewRetrospectiveForm.$invalid" ng-click="createRetro()">
+<div class="modal-footer">
+  <button class="btn" ng-disabled="StartNewRetrospectiveForm.$invalid" ng-click="createRetro()">
     {{ isScheduling ? 'Schedule' : 'Start now' }}
   </button>
 </div>

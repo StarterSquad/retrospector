@@ -46,17 +46,19 @@
 .modal-title {
   padding: 0;
   margin: 0;
-  font-size: 15px;
+  font-size: 1.09em;
 }
 
 .modal-header {
-  padding: 19px 15px;
+  padding: 17px 20px 18px;
   color: white;
   background: lighten($color-primary, 4%);
-  text-shadow: 0 1px 2px black;
+  font-weight: bold;
+  @include font-smoothing(on);
 }
 
 .modal-footer {
+  text-align: center;
   padding: 15px;
   background: #eaecef;
 }
@@ -72,7 +74,7 @@
     margin: 30px auto;
 
     &.__s {
-      width: 300px;
+      width: 400px;
     }
   }
 

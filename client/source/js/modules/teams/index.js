@@ -1,4 +1,4 @@
 define([
   './teams-ctrl',
-  './modals/add-team-ctrl'
+  './modals/add-edit-team-ctrl'
 ], function () {});

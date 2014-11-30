@@ -10,9 +10,11 @@
 }
 
 html {
-  font: 14px/1.4 Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.182;
+  font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
   overflow-y: scroll;
-  background: $color-second;
+  @include font-smoothing(off);
 
   &.__white {
     background: white;

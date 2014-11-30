@@ -7,6 +7,10 @@ define([
   return angular.module('app.resources.team', ['ngResource'])
 
     .service('Team', function ($resource) {
-      return $resource('/api/teams/:id/:path', { id: '@_id', path: '@path' });
+      return $resource('/api/teams/:id/:path', { id: '@_id', path: '@path' }, {
+        update: {
+          method: 'PUT'
+        }
+      });
     });
 });

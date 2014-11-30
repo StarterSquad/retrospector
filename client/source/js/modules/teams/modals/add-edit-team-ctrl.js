@@ -1,15 +1,12 @@
 define(['../module', 'underscore'], function (module, _) {
   'use strict';
 
-  module.controller('AddTeamCtrl', function ($scope, Team, UserManager, allUsers) {
+  module.controller('AddEditTeamCtrl', function ($scope, Team, UserManager, allUsers, team) {
     /**
      * Init models
      */
 
-    $scope.team = new Team({
-      // Add current user to members automatically
-      members: [UserManager.data._id]
-    });
+    $scope.team = team;
     $scope.allUsers = allUsers;
 
     /**
@@ -20,6 +17,12 @@ define(['../module', 'underscore'], function (module, _) {
       $scope.team.$save(function (createdTeam) {
         $scope.$close(createdTeam);
       })
+    };
+
+    $scope.saveTeam = function () {
+      $scope.team.$update(function () {
+        $scope.$close();
+      });
     };
   });
 });

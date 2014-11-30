@@ -2,14 +2,22 @@
 // ======
 
 .btn {
-  @extend .btn.__m, .btn.__white;
-  border-radius: 3px;
-  border: none;
-  cursor: pointer;
+  @extend .btn.__m, .btn.__blue;
+  margin: 0;
+  font-size: 11px;
   display: inline-block;
-  text-align: center;
+  zoom: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  outline: none;
+  vertical-align: top;
+  overflow: visible;
+  line-height: 13px;
   text-decoration: none;
-  user-select: none;
+  background: none;
+  border-radius: 2px;
+  color: #FFF;
+  border: 0;
   transition: all 100ms;
 
   &:focus {
@@ -28,18 +36,14 @@
   // ### Sizes
 
   &.__m {
-    @include font-height(13px, 16px);
-    padding: 7px 12px;
-    padding-bottom: 6px;
+    padding: 6px 16px 7px 16px;
   }
 
   &.__l {
-    @include font-height(16px, normal);
     padding: 9px 16px;
   }
 
   &.__xl {
-    @include font-height(18px, 22px);
     padding: 12px 24px;
   }
 
@@ -58,15 +62,11 @@
   }
 
   &.__blue {
-    background: lighten($color-primary, 5%);
-    border: 1px solid darken($color-primary, 7%);
-    color: white;
-    text-shadow: 0 1px 2px black;
+    background: #6383a8;
 
     &.__active,
     &:active:not(:disabled) {
       background: $color-primary;
-      border: 1px solid darken($color-primary, 2%);
     }
   }
 

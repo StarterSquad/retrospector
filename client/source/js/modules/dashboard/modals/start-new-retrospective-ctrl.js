@@ -34,7 +34,7 @@ define(['../module', 'moment'], function (module, moment) {
       var dayOfWeek = moment($scope.retrospective.date).format('dddd');
       var teamName = _(myTeams).findWhere({ _id: $scope.retrospective.team }).name;
 
-      $scope.retrospective.name = [dayOfWeek, teamName, 'retro'].join(' ');
+      $scope.retrospective.name = [dayOfWeek, teamName].join(' ');
     });
   });
 });
