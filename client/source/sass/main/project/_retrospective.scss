@@ -1,13 +1,8 @@
-.retrospective {
-  margin-bottom: 20px;
-}
-
 .retrospective_participants {
   margin-bottom: 25px;
 }
 
 .retrospective_participants_i {
-  box-shadow: 0 2px 30px rgba(black, .3);
   border-radius: 50%;
   transition: all 150ms;
   cursor: pointer;
@@ -17,7 +12,7 @@
   }
 
   &.__idle {
-    filter: blur(5px);
+    filter: blur(2px);
     opacity: 0.35;
     box-shadow: none;
 

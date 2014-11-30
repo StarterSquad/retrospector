@@ -1,4 +1,4 @@
-<form role="form" style="width: 206px; margin: 200px auto" ng-submit="authenticate()">
+<form role="form" name="SigninForm" style="width: 206px; margin: 200px auto" ng-submit="authenticate()" autocomplete="on">
   <div class="text-center">
     <i class="logo"></i>
     <br/>
@@ -6,17 +6,17 @@
   </div>
   <input class="txbox margin-top-s"
          type="email"
+         name="username"
          ng-model="email"
-         saved-login-form="saved-login-form"
          placeholder="Email"
          required="required">
   <input class="txbox margin-top-xxs"
          type="password"
+         name="password"
          ng-model="password"
-         saved-login-form="saved-login-form"
          placeholder="Password"
          required="required">
 
-  <button type="submit" class="btn __l __primary __block __blue margin-top-xs">Sign in</button>
+  <button type="submit" class="btn __l __primary __block __blue margin-top-xs">Log in</button>
   <p class="text-right"><a class="link" ui-sref="signup">Create new account</a></p>
 </form>

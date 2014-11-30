@@ -1,9 +1,10 @@
 .retrospectives {
+  margin: (-($layout-gutter * 2)) (-$layout-gutter) (-($layout-gutter * 3));
+
   &_search {
     background: #f6f6f6;
     padding: 10px;
-    margin-top: -$layout-gutter * 2;
-    border-bottom: 1px solid desaturate(lighten($color-primary, 45%), 10%);
+    border-bottom: 1px solid desaturate(lighten($color-primary, 43%), 10%);
 
     &_empty {
       padding: 50px 0px;

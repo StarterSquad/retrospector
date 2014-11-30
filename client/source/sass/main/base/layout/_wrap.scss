@@ -6,5 +6,11 @@
   margin-right: auto;
   width: 760px;
   padding: ($layout-gutter * 2)  $layout-gutter ($layout-gutter * 3);
+  margin-bottom: $layout-gutter * 2;
   background: white;
+  border: 1px solid desaturate(lighten($color-primary, 40%), 10%);
+  border-top: none;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow: hidden;
 }

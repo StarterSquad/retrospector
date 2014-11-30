@@ -19,7 +19,7 @@
     background-clip: padding-box;
     background-color: white;
     border: 1px solid rgba(black, .2);
-    box-shadow: 0 2px 5px rgba(black, .5);
+    box-shadow: 0 2px 10px rgba(#000, 0.35);
     outline: 0;
     position: relative;
   }
@@ -35,7 +35,7 @@
   }
 
   &.in {
-    opacity: 0.6;
+    opacity: 0.7;
   }
 }
 
@@ -79,7 +79,7 @@
   }
 
   .modal_inner {
-    box-shadow: 0 5px 15px rgba(#000, 0.5);
+    box-shadow: 0 2px 10px rgba(#000, 0.35);
   }
 
 }

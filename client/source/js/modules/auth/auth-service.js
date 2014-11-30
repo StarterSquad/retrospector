@@ -1,7 +1,7 @@
 define(['./module'], function (module) {
   'use strict';
 
-  module.service('Auth', function ($cookies, $rootScope, $state, $location, User, UserManager, socket) {
+  module.service('Auth', function ($cookies, $rootScope, $state, $location, $window, User, UserManager, socket) {
     var service = {
       goToLogin: function () {
         $state.go('signin');
@@ -9,9 +9,8 @@ define(['./module'], function (module) {
       login: function (email, password) {
         var payload = { email: email, password: password };
 
-        return User.save({ path: 'auth' }, payload, function (user) {
-          UserManager.set(user);
-          $location.path('/');
+        return User.save({ path: 'auth' }, payload, function () {
+          $window.location.href = '/';
         }, function (result) {
           // Error
         });

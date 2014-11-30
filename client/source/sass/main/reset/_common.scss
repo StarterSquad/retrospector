@@ -15,10 +15,7 @@ html {
   font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
   overflow-y: scroll;
   @include font-smoothing(off);
-
-  &.__white {
-    background: white;
-  }
+  background: #f6f6f6;
 }
 
 // Remove text-shadow in selection highlight: h5bp.com/i

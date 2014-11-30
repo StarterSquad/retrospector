@@ -4,13 +4,13 @@
                  ng-class="{ __idle: participant.isIdle }"
                  ng-repeat="participant in (retrospective.participants | orderBy:'isIdle') track by participant.user._id"
                  email="{{ participant.user.email }}"
-                 size="64"></ng-gravatar>
+                 size="46"></ng-gravatar>
   </div>
 
-  <a class="link __black __complex" ng-click="" ng-hide="fullscreen.isEntered">
-    <img src="https://www.laga.nl/img/fullscr.png" alt="Enter fullscreen"><br/>
-    <span class="link_u">Enter full screen</span>
-  </a>
+  <!--<a class="link __black __complex" ng-click="" ng-hide="fullscreen.isEntered">-->
+    <!--<img src="https://www.laga.nl/img/fullscr.png" alt="Enter fullscreen"><br/>-->
+    <!--<span class="link_u">Enter full screen</span>-->
+  <!--</a>-->
 
   <div class="retrospective_block __compressed">
     <h2 class="retrospective_block_header">Clients</h2>

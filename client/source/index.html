@@ -28,7 +28,7 @@
 </head>
 <body ng-cloak>
   <!-- Header -->
-  <div class="header" ng-controller="HeaderCtrl" ng-show="UserManage.isLoggedIn && !fullscreen.isEntered">
+  <div class="header" ng-controller="HeaderCtrl" ng-show="!fullscreen.isEntered">
     <div class="header_wrap">
       <ul class="header_menu">
         <li class="header_menu_i">
@@ -38,12 +38,12 @@
         </li>
       </ul>
 
-      <ul class="header_menu float-right">
+      <ul class="header_menu float-right" ng-show="UserManage.isLoggedIn">
         <li class="header_menu_i">
-          <a class="header_menu_i_a" ui-sref="dashboard">Retrospectives (2)</a>
+          <a class="header_menu_i_a" ui-sref="dashboard" ui-sref-active="__active">Retrospectives (2)</a>
         </li>
         <li class="header_menu_i">
-          <a class="header_menu_i_a" ui-sref="teams">My teams (1)</a>
+          <a class="header_menu_i_a" ui-sref="teams" ui-sref-active="__active">My teams (1)</a>
         </li>
         <li class="header_menu_i">
           <a class="header_menu_i_a">Settings</a>
@@ -61,9 +61,6 @@
  <!-- Footer -->
   <footer class="footer" ng-hide="'retrospectives.view' | includedByState">
     <div>
-      The simplest retrospective tool powered by <a href="//startersquad.com" target="_blank">StarterSquad</a>
-    </div>
-    <div style="margin-top: 7px;">
       <a href="#">About</a>
       <a href="#">Terms</a>
       <a href="#">Report an issue</a>

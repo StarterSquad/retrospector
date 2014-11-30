@@ -4,14 +4,21 @@
 .header {
   @include font-smoothing(on);
   background: $color-primary;
-  padding: 0 10px;
-  height: 41px;
+  padding-top: 5px;
+  height: 47px;
   font-weight: bold;
-  color: #E8EFF7;
+  color: white;
 
   &_wrap {
+    overflow: hidden;
     width: 760px;
     margin: 0 auto;
+    background: lighten($color-primary, 5%);
+    border-left: 1px solid darken($color-primary, 5%);
+    border-right: 1px solid darken($color-primary, 5%);
+    border-top: 1px solid darken($color-primary, 7%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
   }
 
   &_menu {
@@ -24,7 +31,7 @@
       list-style: none;
 
       &_a {
-        color: #E8EFF7;
+        color: #ebf2fa;
         cursor: pointer;
         text-decoration: none;
         display: block;
@@ -36,7 +43,7 @@
         }
 
         &:hover, &.__active {
-          background-color: darken($color-primary, 4%);
+          background-color: lighten($color-primary, 1%);
         }
 
         &:active {
