@@ -1,0 +1,45 @@
+.retrospectives {
+  &_search {
+    background: #f6f6f6;
+    padding: 10px;
+    margin-top: -$layout-gutter * 2;
+    border-bottom: 1px solid desaturate(lighten($color-primary, 45%), 10%);
+
+    &_empty {
+      padding: 50px 0px;
+      text-align: center;
+      margin: 10px 0;
+      color: #777;
+      font-size: 1.18em;
+    }
+  }
+
+  &_i {
+    color: $color-primary;
+    font-weight: bold;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+
+    &:hover {
+      background: #f8f8f8;
+    }
+
+    &.__active {
+      background: desaturate(lighten($color-primary, 51%), 5%);
+
+      &:hover {
+        background: desaturate(lighten($color-primary, 48%), 5%);
+      }
+    }
+
+    &_img {
+      max-height: 24px;
+      border-radius: 2px;
+    }
+
+    & + & {
+      border-top: 1px solid desaturate(lighten($color-primary, 47%), 10%);
+    }
+  }
+}

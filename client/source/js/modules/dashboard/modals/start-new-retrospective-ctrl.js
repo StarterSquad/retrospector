@@ -1,4 +1,4 @@
-define(['../module', 'moment'], function (module, moment) {
+define(['../module'], function (module) {
   'use strict';
 
   module.controller('StartNewRetrospectiveCtrl', function ($scope, $state, myTeams, UserManager, Retrospective) {
@@ -25,16 +25,5 @@ define(['../module', 'moment'], function (module, moment) {
         }
       });
     };
-
-    /**
-     * Watchers
-     */
-
-    $scope.$watchCollection('[retrospective.team, retrospective.date, isScheduling]', function () {
-      var dayOfWeek = moment($scope.retrospective.date).format('dddd');
-      var teamName = _(myTeams).findWhere({ _id: $scope.retrospective.team }).name;
-
-      $scope.retrospective.name = [dayOfWeek, teamName].join(' ');
-    });
   });
 });

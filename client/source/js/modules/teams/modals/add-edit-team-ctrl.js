@@ -13,16 +13,10 @@ define(['../module', 'underscore'], function (module, _) {
      * Methods
      */
 
-    $scope.addTeam = function () {
-      $scope.team.$save(function (createdTeam) {
-        $scope.$close(createdTeam);
-      })
-    };
-
     $scope.saveTeam = function () {
-      $scope.team.$update(function () {
-        $scope.$close();
-      });
+      $scope.team[$scope.team._id ? '$update' : '$save'](function (savedTeam) {
+        $scope.$close(savedTeam);
+      })
     };
   });
 });

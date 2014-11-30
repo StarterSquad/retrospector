@@ -8,7 +8,7 @@ define(['./module', 'underscore'], function (module, _) {
      * Methods
      */
 
-    $scope.openAddTeamModal = function () {
+    $scope.openAddEditTeamModal = function (team) {
       $modal.open({
         templateUrl: 'js/modules/teams/modals/add-edit-team.html',
         controller: 'AddEditTeamCtrl',
@@ -17,13 +17,13 @@ define(['./module', 'underscore'], function (module, _) {
             return User.query().$promise;
           },
           team: function (Team, UserManager) {
-            // Create new Team instance on resolve-phase to have compatibility with Edit modal
-            return new Team({
+            return team || new Team({
               // Add current user to members automatically
               members: [UserManager.data._id]
             });
           }
-        }
+        },
+        size: 'small'
       })
         .result
         .then(function (createdTeam) {
@@ -31,21 +31,6 @@ define(['./module', 'underscore'], function (module, _) {
             $scope.teams.push(createdTeam);
           }
         })
-    };
-
-    $scope.openEditTeamModal = function (team) {
-      $modal.open({
-        templateUrl: 'js/modules/teams/modals/add-edit-team.html',
-        controller: 'AddEditTeamCtrl',
-        resolve: {
-          allUsers: function (User) {
-            return User.query().$promise;
-          },
-          team: function () {
-            return team
-          }
-        }
-      });
     };
   });
 });

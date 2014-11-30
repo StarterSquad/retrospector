@@ -29,12 +29,12 @@
 
 .retrospective_block {
   transition: all 300ms;
-  max-width: 790px;
+  max-width: 760px;
   margin: 0 auto;
   text-align: left;
 
   &_header {
-    font-size: 27px;
+    font-size: 24px;
     font-weight: normal;
     font-family: Georgia;
     margin-top: 35px;
@@ -118,7 +118,7 @@
 
       &:not(:hover) {
         display: block;
-        width: 732px;
+        width: 682px;
         overflow: hidden;
         text-overflow: ellipsis;
       }

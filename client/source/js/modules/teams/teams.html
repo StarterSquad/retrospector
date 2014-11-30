@@ -1,7 +1,7 @@
 <div class="team">
   <div class="grid">
     <div class="4" ng-repeat="team in teams">
-      <div class="team-card" ng-click="openEditTeamModal(team)">
+      <div class="team-card" ng-click="openAddEditTeamModal(team)">
         <div class="team-card_header">
           {{ team.name }}
         </div>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="4">
-      <div class="team-card __add-team" ng-click="openAddTeamModal()">+</div>
+      <div class="team-card __add-team" ng-click="openAddEditTeamModal()">+</div>
     </div>
   </div>
 </div>

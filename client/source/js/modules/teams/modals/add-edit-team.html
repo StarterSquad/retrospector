@@ -2,41 +2,21 @@
   <span class="modal-title">{{ team._id ? 'Edit' : 'Add' }} team</span>
 </div>
 <div class="modal-body">
-  <!-- Add Team Form -->
-  <form class="form" name="AddTeamForm">
-    <div class="section grid">
-      <label class="form_label __required 3 text-right" for="first_name">Team name</label>
-      <div class="9">
-        <input type="text" class="txbox" id="first_name" ng-model="team.name" required>
-      </div>
-    </div>
-    <div class="section grid">
-      <label class="form_label __required 3 text-right">
-        Members
-      </label>
-      <div class="9">
-        <select style="width: 100%" required ui-select2 multiple ng-model="team.members">
-          <option value=""></option>
-          <option ng-repeat="user in allUsers" value="{{ user._id }}">{{ user.fullName }}</option>
-        </select>
-      </div>
+  <form class="form" name="AddEditTeamForm">
+    <div class="section_l">
+      <label class="form_label" for="first_name">Name</label>
+      <input type="text" class="txbox" id="first_name" ng-model="team.name" required>
     </div>
 
-    <div class="grid margin-top-xs">
-      <div class="++3">
-        <h3>Google Calendar integration</h3>
-        <p>Retrospector assumes you use <a class="link" href="https://www.google.com/calendar">Google Calendar</a> inside your team to orginize work better. Please, set API Key to integrate Retrospector with Google Calendar</p>
-      </div>
-    </div>
-
-    <div class="section grid">
-      <label class="form_label 3 text-right" for="googleCalendarApiKey">API Key</label>
-      <div class="9">
-        <input type="text" class="txbox" id="googleCalendarApiKey" ng-model="team.googleCalendarApiKey">
-      </div>
+    <div class="section_l">
+      <label class="form_label">Members</label>
+      <select style="width: 100%" required ui-select2 multiple ng-model="team.members">
+        <option value=""></option>
+        <option ng-repeat="user in allUsers" value="{{ user._id }}">{{ user.fullName }}</option>
+      </select>
     </div>
   </form>
 </div>
 <div class="modal-footer">
-  <button class="btn" ng-disabled="AddTeamForm.$invalid" ng-click="addTeam()">Add team</button>
+  <button class="btn" ng-disabled="AddEditTeamForm.$invalid" ng-click="saveTeam()">{{ team._id ? 'Edit' : 'Add' }} team</button>
 </div>

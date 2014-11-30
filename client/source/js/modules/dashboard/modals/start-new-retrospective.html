@@ -1,30 +1,24 @@
 <div class="modal-header">
-  <span class="modal-title">{{ isScheduling ? 'Schedule' : 'Start' }} {{ retrospective.name }} retrospective</span>
+  <span class="modal-title">{{ isScheduling ? 'Schedule' : 'Start' }} new retrospective</span>
 </div>
 <div class="modal-body">
   <form class="form" name="StartNewRetrospectiveForm">
-    <div class="section grid">
-      <label class="form_label 3 text-right">Team</label>
-      <div class="4">
-        <select class="txbox" ng-model="retrospective.team" ng-options="team._id as team.name for team in myTeams"></select>
-      </div>
+    <div class="section_l">
+      <label class="form_label">Team</label>
+      <select class="txbox" ng-model="retrospective.team" ng-options="team._id as team.name for team in myTeams"></select>
     </div>
 
-    <div class="section grid">
-      <div class="++3 9">
-        <label class="checkbox-inline">
-          <input type="checkbox" ng-model="isScheduling">
-          Start later
-        </label>
-      </div>
+    <div class="section_l section">
+      <label class="checkbox-inline">
+        <input type="checkbox" ng-model="isScheduling">
+        Start later
+      </label>
     </div>
 
-    <div class="section grid" ng-if="isScheduling">
-      <label class="form_label 3 text-right" for="datetime">Date/Time</label>
-      <div class="9">
-        <input type="date" class="txbox __inline" id="datetime" ng-model="retrospective.date">
-        <input type="time" class="txbox __inline" ng-model="retrospective.time">
-      </div>
+    <div class="section" ng-if="isScheduling">
+      <label class="form_label" for="datetime">Date/Time</label>
+      <input type="date" class="txbox __inline" id="datetime" ng-model="retrospective.date">
+      <input type="time" class="txbox __inline" ng-model="retrospective.time">
     </div>
   </form>
 </div>

@@ -6,4 +6,10 @@
   & + & {
     margin-top: $layout-gutter;
   }
+
+  &_l {
+    & + & {
+      margin-top: $layout-gutter * 2;
+    }
+  }
 }

@@ -2,7 +2,7 @@ define(['./module'], function (module) {
   'use strict';
 
   module.controller('DashboardCtrl', function ($scope, $modal, retrospectives) {
-    $scope.activeRetrospectives = _(retrospectives).where({ active: true });
+    $scope.retrospectives = retrospectives;
     
     /**
      * Methods
