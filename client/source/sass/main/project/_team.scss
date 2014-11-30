@@ -1,5 +1,4 @@
 .team {
-  padding: 15px 0;
   
   &-card {
     transition: background 100ms;
@@ -43,10 +42,10 @@
     }
 
     &.__add-team {
-      @include size(55px);
+      @include size(45px);
       text-align: center;
-      font-size: 37px;
-      padding: 4px 0;
+      font-size: 26px;
+      padding: 5px 0;
     }
   }
 
