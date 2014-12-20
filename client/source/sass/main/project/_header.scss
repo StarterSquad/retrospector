@@ -3,57 +3,78 @@
 
 .header {
   @include font-smoothing(on);
-  background: $color-primary;
   padding-top: 5px;
   height: 47px;
-  font-weight: bold;
+  background: $color-primary;
   color: white;
+  font-weight: bold;
 
   &_wrap {
     overflow: hidden;
-    width: 760px;
     margin: 0 auto;
-    background: lighten($color-primary, 5%);
-    border-left: 1px solid darken($color-primary, 5%);
-    border-right: 1px solid darken($color-primary, 5%);
+    width: 760px;
     border-top: 1px solid darken($color-primary, 7%);
+    border-right: 1px solid darken($color-primary, 5%);
+    border-left: 1px solid darken($color-primary, 5%);
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+    background: lighten($color-primary, 5%);
   }
 
   &_menu {
-    list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    list-style: none;
 
     &_i {
       float: left;
       list-style: none;
 
       &_a {
-        color: #ebf2fa;
-        cursor: pointer;
-        text-decoration: none;
+        position: relative;
         display: block;
         padding: 14px 10px;
+        color: #ebf2fa;
+        text-decoration: none;
+        cursor: pointer;
 
         &.__header-logo {
           padding-top: 13px;
           padding-bottom: 9px;
         }
 
-        &:hover, &.__active {
-          background-color: lighten($color-primary, 1%);
+        &:not(.__header-logo):hover, &.__active {
+          background-color: lighten($color-primary, 2%);
         }
 
         &:active {
           padding-top: 15px;
           padding-bottom: 13px;
+
+          &.__new:after {
+            top: 14px;
+          }
         }
 
         &.__header-logo:active {
           padding-top: 14px;
           padding-bottom: 8px;
+        }
+
+        &.__new:after {
+          position: absolute;
+          top: 13px;
+          right: 5px;
+          z-index: 1;
+          overflow: hidden;
+          width: 7px;
+          height: 7px;
+          border: 1px solid transparent;
+          border-radius: 50%;
+          background: #f14d37;
+          background: linear-gradient(to bottom, #ff6b48 0%, #e9583a 100%);
+          box-shadow: 0 1px 1px rgba(black, .7);
+          content: '';
         }
       }
     }

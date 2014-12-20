@@ -90,13 +90,13 @@
       }
 
       & + & {
-        margin-top: 5px;
+        margin-top: 2px;
       }
     }
   }
 
   &.__compressed {
-    color: #bbb;
+    color: #aaa;
 
     .retrospective_block_header {
       margin-top: 20px;
@@ -110,13 +110,10 @@
 
     .retrospective_block_list_i_text {
       white-space: nowrap;
-
-      &:not(:hover) {
-        display: block;
-        width: 682px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+      display: block;
+      width: 682px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .retrospective_block_list_i_avatar img {
@@ -151,7 +148,7 @@
 
 @keyframes compress {
   0% {
-    margin-top: 5px;
+    margin-top: 2px;
   }
   100% {
     margin-top: -15px;

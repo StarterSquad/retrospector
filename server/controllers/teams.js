@@ -1,6 +1,6 @@
-var mongoose = require('mongoose'),
-  Team = mongoose.model('Team'),
-  _ = require('underscore');
+var mongoose = require('mongoose');
+var Team = mongoose.model('Team');
+var _ = require('underscore');
 
 exports.create = function (req, res) {
   Team.create(req.body, function (err, createdTeam) {
@@ -8,6 +8,14 @@ exports.create = function (req, res) {
 
     res.json(createdTeam);
   })
+};
+
+exports.update = function (req, res) {
+  Team.findByIdAndUpdate(req.params.id, _(req.body).omit('_id'), function (err, updatedTeam) {
+    if (err) throw new Error(err);
+
+    res.json(updatedTeam);
+  });
 };
 
 exports.getList = function (req, res) {

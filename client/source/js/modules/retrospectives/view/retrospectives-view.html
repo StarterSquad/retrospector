@@ -12,6 +12,10 @@
     <!--<span class="link_u">Enter full screen</span>-->
   <!--</a>-->
 
+  <div class="retrospectives_search_empty" ng-if="retrospective.participants.length === 1">
+    Wait others to start retrospective
+  </div>
+
   <div class="retrospective_block __compressed">
     <h2 class="retrospective_block_header">Clients</h2>
 
@@ -19,39 +23,39 @@
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="32"></ng-gravatar>
+            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
           </div>
           <div class="elastic_col retrospective_block_list_i_text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consectetur culpa dolorem dolorum itaque
+            BridalLive
           </div>
         </div>
       </li>
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="maqsim@mail.com" size="32"></ng-gravatar>
+            <ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
           </div>
           <div class="elastic_col retrospective_block_list_i_text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deleniti, dignissimos dolores eum harum incidunt officia veniam! Deleniti inventore ipsum labore pariatur porro quasi. Animi exercitationem placeat ratione sunt ullam?
+            Optima
           </div>
         </div>
       </li>
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="32"></ng-gravatar>
+            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
           </div>
           <div class="elastic_col retrospective_block_list_i_text">
-            haha man
+            Retrospector
           </div>
         </div>
       </li>
@@ -65,7 +69,7 @@
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="maqsim@mail.com" size="32"></ng-gravatar>
+            <ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
@@ -78,7 +82,7 @@
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="maqsim@mail.com" size="32"></ng-gravatar>
+            <ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
@@ -91,7 +95,7 @@
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="maqsim@mail.com" size="32"></ng-gravatar>
+            <ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
@@ -104,7 +108,7 @@
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="32"></ng-gravatar>
+            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
@@ -117,7 +121,7 @@
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="32"></ng-gravatar>
+            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
@@ -137,7 +141,7 @@
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="32"></ng-gravatar>
+            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
@@ -150,7 +154,7 @@
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="32"></ng-gravatar>
+            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
@@ -163,7 +167,7 @@
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="32"></ng-gravatar>
+            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
@@ -176,7 +180,7 @@
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="32"></ng-gravatar>
+            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
@@ -189,7 +193,7 @@
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="32"></ng-gravatar>
+            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
@@ -202,7 +206,7 @@
       <li class="retrospective_block_list_i">
         <div class="elastic">
           <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="maqsim@mail.com" size="32"></ng-gravatar>
+            <ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>
           </div>
           <div class="elastic_col retrospective_block_list_i_like-section">
             <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">

@@ -11,14 +11,18 @@ exports.get = function (req, res) {
 };
 
 exports.getList = function (req, res) {
-  Retrospective.find({}).sort({
-    active: -1,
-    createdAt: -1
-  }).exec(function (err, retrospectives) {
-    if (err) throw new Error(err);
+  Retrospective
+    .find()
+    .populate('team')
+    .sort({
+      active: -1,
+      createdAt: -1
+    })
+    .exec(function (err, retrospectives) {
+      if (err) throw new Error(err);
 
-    res.json(retrospectives);
-  })
+      res.json(retrospectives);
+    })
 };
 
 exports.create = function (req, res) {

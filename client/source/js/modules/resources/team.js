@@ -8,9 +8,7 @@ define([
 
     .service('Team', function ($resource) {
       return $resource('/api/teams/:id/:path', { id: '@_id', path: '@path' }, {
-        update: {
-          method: 'PUT'
-        }
+        update: { method: 'PUT' }
       });
     });
 });

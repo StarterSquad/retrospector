@@ -1,12 +1,13 @@
-global.sockets = {};
+var mongoose = require('mongoose');
+var restify = require('restify');
+var socket = require('socket.io');
+var clc = require('cli-color');
+var _ = require('underscore');
+var fs = require('fs');
+var clientSessions = require('client-sessions');
 
-var mongoose = require('mongoose'),
-    restify = require('restify'),
-    socket = require('socket.io'),
-    clc = require('cli-color'),
-    _ = require('underscore'),
-    fs = require('fs'),
-    clientSessions = require('client-sessions');
+// Set sockets collector
+global.sockets = {};
 
 // Load environment config
 try {
@@ -31,7 +32,7 @@ var errorMessage = clc.red.bold;
 var noticeMessage = clc.blue;
 var warnMessage = clc.yellow;
 
-// Connect to Mongo
+// Connect to MongoDB
 mongoose.connect(global.ENV_CONFIG.db, function (error) {
   if (error) {
     console.log(errorMessage('Error! Failed to connect to mongo at "' + global.ENV_CONFIG.db + '"'));
@@ -54,14 +55,22 @@ fs.readdirSync('./models').forEach(function (file) {
 // Load test data
 if (process.argv.indexOf('--load-test-data') > -1) {
   fs.readdirSync('./testdata').forEach(function (filename) {
-    var model = mongoose.model(_(filename.replace('.json', '')).capitalize());
+    var modelName = filename
+      .replace('.json', '')
+      .split('-')
+      .map(function (part) {
+        return _(part).capitalize();
+      })
+      .join('');
+
+    var model = mongoose.model(modelName);
     var json = fs.readFileSync('./testdata/' + filename, { encoding: 'UTF-8' });
     var data = JSON.parse(json);
 
     model.remove(function () {
       model.create(data, function (err) {
         if (err) {
-          errorMessage('Error while inserting test data into "' + model + '": ' + err);
+          console.log(errorMessage('Error while inserting test data into "' + model + '": ' + err));
         }
       });
     });
@@ -69,19 +78,20 @@ if (process.argv.indexOf('--load-test-data') > -1) {
 }
 
 // Configure app
-server.use(restify.bodyParser({ mapParams: false })); // mapped in req.body
+server.use(restify.bodyParser({ mapParams: false })); // Mapped in req.body
 server.use(restify.queryParser());
 server.use(clientSessions({
   secret: 'PassportOnlineSecretKey',
   cookieName: 'token',
   requestKey: 'session_state',
-  duration: 24 * 60 * 60 * 1000, // how long the session will stay valid in ms
-  activeDuration: 1000 * 60 * 5 // if expiresIn < activeDuration, the session will be extended by activeDuration milliseconds
+  duration: 24 * 60 * 60 * 1000, // How long the session will stay valid in ms
+  activeDuration: 1000 * 60 * 5 // If expiresIn < activeDuration, the session will be extended by activeDuration milliseconds
 }));
 
-// Set up appData storage in req
+// Preset appData storage in req
 server.pre(function (req, res, next) {
   req.appData = {};
+
   return next();
 });
 
@@ -92,6 +102,4 @@ require('./config/routes')(server);
 require('./config/sockets')(io);
 
 // Start server
-server.listen(global.ENV_CONFIG.port, function () {
-  console.log(warnMessage('%s listening at %s'), server.name, server.url);
-});
+server.listen(global.ENV_CONFIG.port);

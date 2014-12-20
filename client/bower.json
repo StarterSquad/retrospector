@@ -8,12 +8,12 @@
     "components"
   ],
   "dependencies": {
-    "angular": "=1.2.22",
+    "angular": "=1.2.25",
     "angular-cookies": "latest",
-    "angular-mocks": "=1.2.16",
-    "angular-resource": "=1.2.16",
+    "angular-mocks": "=1.2.25",
+    "angular-resource": "=1.2.25",
     "angular-ui-select2": "latest",
-    "angular-ui-router": "=0.2.10",
+    "angular-ui-router": "=0.2.11",
     "jasmine-matchers": "https://github.com/JamieMason/Jasmine-Matchers.git#=1.20.0",
     "jquery": "=2.1.1",
     "moment": "=2.8.1",

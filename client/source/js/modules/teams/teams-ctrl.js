@@ -18,9 +18,9 @@ define(['./module', 'underscore'], function (module, _) {
           },
           team: function (Team, UserManager) {
             return team || new Team({
-              // Add current user to members automatically
-              members: [UserManager.data._id]
-            });
+                // Add current user to members automatically
+                members: [UserManager.data._id]
+              });
           }
         },
         size: 'small'
@@ -30,7 +30,7 @@ define(['./module', 'underscore'], function (module, _) {
           if (createdTeam) {
             $scope.teams.push(createdTeam);
           }
-        })
+        });
     };
   });
 });

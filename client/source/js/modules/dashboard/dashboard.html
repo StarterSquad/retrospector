@@ -13,7 +13,7 @@
        ng-class="{ __active: !!retrospective.active }"
        ui-sref="retrospectives.view({ id: retrospective._id })"
        ng-repeat="retrospective in retrospectives | filter:{ name: filterQuery }">
-      <span class="section">{{ retrospective.name }}</span>
+      <span class="section">{{ retrospective.team.name }} {{ retrospective.createdAt | date:'mediumDate' }}</span>
 
       <div class="section">
         <img class="retrospectives_i_img" src="http://lorempixel.com/32/32/people/?1">
