@@ -62,7 +62,7 @@
   }
 
   &.__blue {
-    background: #6383a8;
+    background: lighten($color-primary, 9.2%);
 
     &.__active,
     &:active:not(:disabled) {

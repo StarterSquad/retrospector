@@ -1,7 +1,7 @@
 define(['../module'], function (module) {
   'use strict';
 
-  module.controller('StartNewRetrospectiveCtrl', function ($scope, $state, myTeams, UserManager, Retrospective) {
+  module.controller('StartNewRetrospectiveCtrl', function ($scope, $state, $timeout, myTeams, UserManager, Retrospective) {
     /**
      * Init models
      */
@@ -9,14 +9,15 @@ define(['../module'], function (module) {
     $scope.myTeams = myTeams;
     $scope.retrospective = new Retrospective({
       team: myTeams[0]._id,
-      leader: UserManager.data._id
+      leader: UserManager.data._id,
+      questions: []
     });
 
     /**
      * Methods
      */
 
-    $scope.createRetro = function () {
+    $scope.createRetrospective = function () {
       $scope.retrospective.$save(function (createdRetrospective) {
         if ($scope.isScheduling) {
           $scope.$close();
@@ -25,5 +26,14 @@ define(['../module'], function (module) {
         }
       });
     };
+
+    $scope.addOption = function () {
+      $scope.retrospective.questions.push({});
+
+      // Auto-focus on added option
+      $timeout(function () {
+        angular.element('.questions input:nth-last-child(2)').focus();
+      });
+    }
   });
 });

@@ -37,6 +37,14 @@
     &_img {
       max-height: 24px;
       border-radius: 2px;
+      
+      & + & {
+        margin-left: 3px;
+      }
+
+      &.__idle {
+        opacity: .4;
+      }
     }
 
     & + & {

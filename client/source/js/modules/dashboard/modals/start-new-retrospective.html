@@ -8,6 +8,13 @@
       <select class="txbox" ng-model="retrospective.team" ng-options="team._id as team.name for team in myTeams"></select>
     </div>
 
+    <!-- Questions -->
+    <div class="section_l questions">
+      <label class="form_label">Questions</label>
+      <input class="txbox section" ng-model="question.text" ng-repeat="question in retrospective.questions"/>
+      <input class="txbox section" ng-focus="addOption()" placeholder="Add a question"/>
+    </div>
+
     <div class="section_l section">
       <label class="checkbox-inline">
         <input type="checkbox" ng-model="isScheduling">
@@ -23,7 +30,7 @@
   </form>
 </div>
 <div class="modal-footer">
-  <button class="btn" ng-disabled="StartNewRetrospectiveForm.$invalid" ng-click="createRetro()">
+  <button class="btn" ng-disabled="StartNewRetrospectiveForm.$invalid" ng-click="createRetrospective()">
     {{ isScheduling ? 'Schedule' : 'Start now' }}
   </button>
 </div>

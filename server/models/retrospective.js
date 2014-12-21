@@ -4,8 +4,7 @@ var Schema = mongoose.Schema;
 var RetrospectiveSchema = new Schema({
   name: {
     type: String,
-    trim: true,
-    required: true
+    trim: true
   },
   team: {
     type: Schema.Types.ObjectId,
@@ -23,6 +22,34 @@ var RetrospectiveSchema = new Schema({
       ref: 'User'
     },
     isIdle: Boolean
+  }],
+  questions: [{
+    text: {
+      type: String,
+      required: true,
+      trim: true,
+      unique: true
+    },
+    status: {
+      type: String,
+      enum: ['active', 'waiting', 'finished'],
+      default: 'waiting'
+    },
+    answers: [{
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+      },
+      text: {
+        type: String,
+        required: true,
+        trim: true
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now
+      }
+    }]
   }],
   active: {
     type: Boolean,

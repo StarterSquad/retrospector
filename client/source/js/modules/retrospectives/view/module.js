@@ -1,10 +1,16 @@
 define([
   'angular',
-  'ui.router'
+  'ui.router',
+  '../../resources/retroscpective',
+  '../../user-manager/index',
+  '../../ui/fullscreen/index'
 ], function (angular) {
   'use strict';
 
   return angular.module('app.retrospectives.view', [
+    'app.ui.fullscreen',
+    'app.resources.retrospective',
+    'app.user-manager',
     'ui.router'
   ])
 

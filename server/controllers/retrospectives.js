@@ -14,6 +14,7 @@ exports.getList = function (req, res) {
   Retrospective
     .find()
     .populate('team')
+    .populate('participants.user')
     .sort({
       active: -1,
       createdAt: -1
@@ -26,7 +27,17 @@ exports.getList = function (req, res) {
 };
 
 exports.create = function (req, res) {
-  Retrospective.create(req.body, function (err, createdRetrospective) {
+  var retrospective = req.body;
+
+  if (!retrospective.questions.length) {
+    return res.json(400, {
+      message: 'No questions to discuss'
+    });
+  }
+
+  retrospective.questions[0].status = 'active';
+
+  Retrospective.create(retrospective, function (err, createdRetrospective) {
     if (err) throw new Error(err);
 
     res.json(createdRetrospective);

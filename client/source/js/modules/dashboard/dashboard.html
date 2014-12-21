@@ -16,14 +16,12 @@
       <span class="section">{{ retrospective.team.name }} {{ retrospective.createdAt | date:'mediumDate' }}</span>
 
       <div class="section">
-        <img class="retrospectives_i_img" src="http://lorempixel.com/32/32/people/?1">
-        <img class="retrospectives_i_img" src="http://lorempixel.com/32/32/people/?2">
-        <img class="retrospectives_i_img" src="http://lorempixel.com/100/100/people/?3">
-        <img class="retrospectives_i_img" src="http://lorempixel.com/32/32/people/?4">
-        <img class="retrospectives_i_img" src="http://lorempixel.com/32/32/people/?1">
-        <img class="retrospectives_i_img" src="http://lorempixel.com/32/32/people/?2">
-        <img class="retrospectives_i_img" src="http://lorempixel.com/100/100/people/?3">
-        <img class="retrospectives_i_img" src="http://lorempixel.com/32/32/people/?4">
+        <ng-gravatar class="retrospectives_i_img"
+                     ng-class="{ __idle: participant.isIdle }"
+                     ng-repeat="participant in (retrospective.participants | orderBy:'isIdle') track by $index"
+                     email="{{ participant.user.email }}"
+                     title="{{ participant.user.fullName }}"
+                     size="24"></ng-gravatar>
       </div>
     </a>
   </div>

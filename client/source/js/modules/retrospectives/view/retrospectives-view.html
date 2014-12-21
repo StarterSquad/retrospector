@@ -12,214 +12,173 @@
     <!--<span class="link_u">Enter full screen</span>-->
   <!--</a>-->
 
-  <div class="retrospectives_search_empty" ng-if="retrospective.participants.length === 1">
+  <div class="retrospectives_search_empty" style="padding-top: 20px;" ng-if="retrospective.participants.length === 1">
     Wait others to start retrospective
   </div>
 
-  <div class="retrospective_block __compressed">
-    <h2 class="retrospective_block_header">Clients</h2>
+  <div ng-if="retrospective.participants.length > 1">
+    <div class="retrospective_block"
+         ng-class="{ __compressed: question.status === 'finished' }"
+         ng-if="question.status === 'active'"
+         ng-repeat="question in retrospective.questions">
+      <h2 class="retrospective_block_header">{{ question.text }}</h2>
 
-    <ul class="retrospective_block_list">
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
+      <ul class="retrospective_block_list">
+        <li class="retrospective_block_list_i">
+          <div class="elastic">
+            <div class="elastic_col retrospective_block_list_i_avatar">
+              <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
+            </div>
+            <div class="elastic_col retrospective_block_list_i_like-section">
+              <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
+            </div>
+            <div class="elastic_col retrospective_block_list_i_text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consectetur culpa dolorem dolorum itaque
+            </div>
           </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
+        </li>
+        <li class="retrospective_block_list_i">
+          <div class="elastic">
+            <div class="elastic_col retrospective_block_list_i_avatar">
+              <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
+            </div>
+            <div class="elastic_col retrospective_block_list_i_like-section">
+              <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
+            </div>
+            <div class="elastic_col retrospective_block_list_i_text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deleniti, dignissimos dolores eum harum incidunt officia veniam! Deleniti inventore ipsum labore pariatur porro quasi. Animi exercitationem placeat ratione sunt ullam?
+            </div>
           </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            BridalLive
+        </li>
+        <li class="retrospective_block_list_i">
+          <div class="elastic">
+            <div class="elastic_col retrospective_block_list_i_avatar">
+              <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
+            </div>
+            <div class="elastic_col retrospective_block_list_i_like-section">
+              <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
+            </div>
+            <div class="elastic_col retrospective_block_list_i_text">
+              haha man
+            </div>
           </div>
-        </div>
-      </li>
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>
+        </li>
+        <li class="retrospective_block_list_i">
+          <div class="elastic">
+            <div class="elastic_col retrospective_block_list_i_avatar">
+              <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
+            </div>
+            <div class="elastic_col retrospective_block_list_i_like-section">
+              <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
+            </div>
+            <div class="elastic_col retrospective_block_list_i_text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consectetur culpa dolorem dolorum itaque
+            </div>
           </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
+        </li>
+        <li class="retrospective_block_list_i">
+          <div class="elastic">
+            <div class="elastic_col retrospective_block_list_i_avatar">
+              <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
+            </div>
+            <div class="elastic_col retrospective_block_list_i_like-section">
+              <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
+            </div>
+            <div class="elastic_col retrospective_block_list_i_text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deleniti, dignissimos dolores eum harum incidunt officia veniam! Deleniti inventore ipsum labore pariatur porro quasi. Animi exercitationem placeat ratione sunt ullam?
+            </div>
           </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            Optima
+        </li>
+        <li class="retrospective_block_list_i">
+          <div class="elastic">
+            <div class="elastic_col retrospective_block_list_i_avatar">
+              <ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>
+            </div>
+            <div class="elastic_col retrospective_block_list_i_like-section">
+              <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
+            </div>
+            <div class="elastic_col retrospective_block_list_i_text">
+              <input class="retrospective_block_list_i_add-new" autofocus ng-keydown="addNewItem($event)" placeholder=" start typing to add new item">
+            </div>
           </div>
-        </div>
-      </li>
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
-          </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
-          </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            Retrospector
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
+        </li>
+      </ul>
 
-  <div class="retrospective_block __compressed">
-    <h2 class="retrospective_block_header">What went well?</h2>
-
-    <ul class="retrospective_block_list">
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>
-          </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
-          </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consectetur culpa dolorem dolorum itaque
-          </div>
-        </div>
-      </li>
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>
-          </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
-          </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deleniti, dignissimos dolores eum harum incidunt officia veniam! Deleniti inventore ipsum labore pariatur porro quasi. Animi exercitationem placeat ratione sunt ullam?
-          </div>
-        </div>
-      </li>
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>
-          </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
-          </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            haha man
-          </div>
-        </div>
-      </li>
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
-          </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
-          </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consectetur culpa dolorem dolorum itaque
-          </div>
-        </div>
-      </li>
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
-          </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
-          </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deleniti, dignissimos dolores eum harum incidunt officia veniam! Deleniti inventore ipsum labore pariatur porro quasi. Animi exercitationem placeat ratione sunt ullam?
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <div class="retrospective_block">
-    <h2 class="retrospective_block_header">What can be improved?</h2>
-
-    <ul class="retrospective_block_list">
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
-          </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
-          </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consectetur culpa dolorem dolorum itaque
-          </div>
-        </div>
-      </li>
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
-          </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
-          </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deleniti, dignissimos dolores eum harum incidunt officia veniam! Deleniti inventore ipsum labore pariatur porro quasi. Animi exercitationem placeat ratione sunt ullam?
-          </div>
-        </div>
-      </li>
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
-          </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
-          </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            haha man
-          </div>
-        </div>
-      </li>
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
-          </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
-          </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consectetur culpa dolorem dolorum itaque
-          </div>
-        </div>
-      </li>
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>
-          </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
-          </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deleniti, dignissimos dolores eum harum incidunt officia veniam! Deleniti inventore ipsum labore pariatur porro quasi. Animi exercitationem placeat ratione sunt ullam?
-          </div>
-        </div>
-      </li>
-      <li class="retrospective_block_list_i">
-        <div class="elastic">
-          <div class="elastic_col retrospective_block_list_i_avatar">
-            <ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>
-          </div>
-          <div class="elastic_col retrospective_block_list_i_like-section">
-            <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
-          </div>
-          <div class="elastic_col retrospective_block_list_i_text">
-            <input class="retrospective_block_list_i_add-new" autofocus ng-keydown="addNewItem($event)" placeholder=" start typing to add new item">
-          </div>
-        </div>
-      </li>
-    </ul>
-
-    <div class="retrospective_block_footer">
-      <button class="btn">Start discussion</button>
+      <div class="retrospective_block_footer">
+        <button class="btn">Start discussion</button>
+      </div>
     </div>
   </div>
+
+  <!--<div class="retrospective_block __compressed">-->
+    <!--<h2 class="retrospective_block_header">What went well?</h2>-->
+
+    <!--<ul class="retrospective_block_list">-->
+      <!--<li class="retrospective_block_list_i">-->
+        <!--<div class="elastic">-->
+          <!--<div class="elastic_col retrospective_block_list_i_avatar">-->
+            <!--<ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>-->
+          <!--</div>-->
+          <!--<div class="elastic_col retrospective_block_list_i_like-section">-->
+            <!--<img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">-->
+          <!--</div>-->
+          <!--<div class="elastic_col retrospective_block_list_i_text">-->
+            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consectetur culpa dolorem dolorum itaque-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</li>-->
+      <!--<li class="retrospective_block_list_i">-->
+        <!--<div class="elastic">-->
+          <!--<div class="elastic_col retrospective_block_list_i_avatar">-->
+            <!--<ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>-->
+          <!--</div>-->
+          <!--<div class="elastic_col retrospective_block_list_i_like-section">-->
+            <!--<img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">-->
+          <!--</div>-->
+          <!--<div class="elastic_col retrospective_block_list_i_text">-->
+            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deleniti, dignissimos dolores eum harum incidunt officia veniam! Deleniti inventore ipsum labore pariatur porro quasi. Animi exercitationem placeat ratione sunt ullam?-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</li>-->
+      <!--<li class="retrospective_block_list_i">-->
+        <!--<div class="elastic">-->
+          <!--<div class="elastic_col retrospective_block_list_i_avatar">-->
+            <!--<ng-gravatar email="maqsim@mail.com" size="30"></ng-gravatar>-->
+          <!--</div>-->
+          <!--<div class="elastic_col retrospective_block_list_i_like-section">-->
+            <!--<img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">-->
+          <!--</div>-->
+          <!--<div class="elastic_col retrospective_block_list_i_text">-->
+            <!--haha man-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</li>-->
+      <!--<li class="retrospective_block_list_i">-->
+        <!--<div class="elastic">-->
+          <!--<div class="elastic_col retrospective_block_list_i_avatar">-->
+            <!--<ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>-->
+          <!--</div>-->
+          <!--<div class="elastic_col retrospective_block_list_i_like-section">-->
+            <!--<img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">-->
+          <!--</div>-->
+          <!--<div class="elastic_col retrospective_block_list_i_text">-->
+            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consectetur culpa dolorem dolorum itaque-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</li>-->
+      <!--<li class="retrospective_block_list_i">-->
+        <!--<div class="elastic">-->
+          <!--<div class="elastic_col retrospective_block_list_i_avatar">-->
+            <!--<ng-gravatar email="{{ participant.user.email }}" size="30"></ng-gravatar>-->
+          <!--</div>-->
+          <!--<div class="elastic_col retrospective_block_list_i_like-section">-->
+            <!--<img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">-->
+          <!--</div>-->
+          <!--<div class="elastic_col retrospective_block_list_i_text">-->
+            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deleniti, dignissimos dolores eum harum incidunt officia veniam! Deleniti inventore ipsum labore pariatur porro quasi. Animi exercitationem placeat ratione sunt ullam?-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
 </div>
