@@ -3,11 +3,19 @@ define(['angular'], function (angular) {
 
   angular.module('app.common.directives', [])
 
-    .directive('stayFocus', function () {
-      return function (scope, element) {
-        element.on('blur', function () {
+    .directive('focus', ['$timeout', function ($timeout) {
+      return function (scope, element, attrs) {
+        var isInsideModal = !!element.parents('.modal-body').length;
+        var duration = isInsideModal ? 50 : 0;
+        var doSelectText = scope.$eval(attrs.focus);
+
+        $timeout(function () {
           element.focus();
-        });
+
+          if (doSelectText) {
+            element.get(0).select();
+          }
+        }, duration, false);
       };
-    });
+    }]);
 });
