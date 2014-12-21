@@ -14,7 +14,11 @@ exports.update = function (req, res) {
   Team.findByIdAndUpdate(req.params.id, _(req.body).omit('_id'), function (err, updatedTeam) {
     if (err) throw new Error(err);
 
-    res.json(updatedTeam);
+    updatedTeam.populate('members', function (err, populatedTeam) {
+      if (err) throw new Error(err);
+
+      res.json(populatedTeam);
+    });
   });
 };
 
@@ -28,7 +32,7 @@ exports.getList = function (req, res) {
     return res.json(error);
   }
 
-  Team.find({ members: { $in: [teamMember] } }, function (err, teams) {
+  Team.find({ members: { $in: [teamMember] } }).populate('members').exec(function (err, teams) {
     if (err) throw new Error(err);
 
     res.json(teams);

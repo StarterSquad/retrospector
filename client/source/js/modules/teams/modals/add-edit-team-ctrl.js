@@ -1,4 +1,4 @@
-define(['../module', 'underscore'], function (module, _) {
+define(['../module', 'angular', 'underscore'], function (module, angular, _) {
   'use strict';
 
   module.controller('AddEditTeamCtrl', function ($scope, Team, UserManager, allUsers, team) {
@@ -6,7 +6,8 @@ define(['../module', 'underscore'], function (module, _) {
      * Init models
      */
 
-    $scope.team = team;
+    $scope.team = angular.copy(team);
+    $scope.team.members = _($scope.team.members).pluck('_id');
     $scope.allUsers = allUsers;
 
     /**

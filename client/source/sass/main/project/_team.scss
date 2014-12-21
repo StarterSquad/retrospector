@@ -31,6 +31,10 @@
       &_img {
         max-height: 32px;
         border-radius: 2px;
+        
+        & + & {
+          margin-left: 4px;
+        }
       }
     }
 

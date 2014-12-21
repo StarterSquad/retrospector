@@ -1,6 +1,6 @@
 <div class="team">
   <div class="section grid">
-    <div class="4" ng-repeat="team in teams">
+    <div class="4" ng-repeat="team in teams track by $index">
       <div class="team-card" ng-click="openAddEditTeamModal(team)">
         <div class="team-card_header">
           {{ team.name }}
@@ -13,14 +13,11 @@
         </div>
 
         <div class="team-card_footer">
-          <img class="team-card_footer_img" src="http://lorempixel.com/32/32/people/?1">
-          <img class="team-card_footer_img" src="http://lorempixel.com/32/32/people/?2">
-          <img class="team-card_footer_img" src="http://lorempixel.com/100/100/people/?3">
-          <img class="team-card_footer_img" src="http://lorempixel.com/32/32/people/?4">
-          <img class="team-card_footer_img" src="http://lorempixel.com/32/32/people/?1">
-          <img class="team-card_footer_img" src="http://lorempixel.com/32/32/people/?2">
-          <img class="team-card_footer_img" src="http://lorempixel.com/100/100/people/?3">
-          <img class="team-card_footer_img" src="http://lorempixel.com/32/32/people/?4">
+          <ng-gravatar class="team-card_footer_img"
+                       ng-repeat="member in team.members track by $index"
+                       email="{{ member.email }}"
+                       title="{{ member.fullName }}"
+                       size="32"></ng-gravatar>
           &nbsp;
         </div>
       </div>

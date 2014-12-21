@@ -9,6 +9,8 @@ define(['./module', 'underscore'], function (module, _) {
      */
 
     $scope.openAddEditTeamModal = function (team) {
+      var isNew = !team;
+
       $modal.open({
         templateUrl: 'js/modules/teams/modals/add-edit-team.html',
         controller: 'AddEditTeamCtrl',
@@ -19,16 +21,18 @@ define(['./module', 'underscore'], function (module, _) {
           team: function (Team, UserManager) {
             return team || new Team({
                 // Add current user to members automatically
-                members: [UserManager.data._id]
+                members: [UserManager.data]
               });
           }
         },
         size: 'small'
       })
         .result
-        .then(function (createdTeam) {
-          if (createdTeam) {
-            $scope.teams.push(createdTeam);
+        .then(function (savedTeam) {
+          if (savedTeam && isNew) {
+            $scope.teams.push(savedTeam);
+          } else if (savedTeam) {
+            _(team).extend(savedTeam);
           }
         });
     };
