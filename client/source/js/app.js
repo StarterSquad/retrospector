@@ -14,7 +14,8 @@ define([
   './modules/dashboard/index',
   './modules/retrospectives/index',
   './modules/teams/index',
-  './modules/ui/index'
+  './modules/ui/index',
+  './modules/user-manager/index'
 ], function (angular) {
   'use strict';
 
@@ -28,37 +29,33 @@ define([
     'app.retrospectives',
     'app.teams',
     'app.ui',
+    'app.user-manager',
     'ui.router',
     'ui.select2'
   ])
 
-    .config(function ($httpProvider) {
-      var logoutUserOn401 = ['$q', function ($q) {
-        var success = function (response) {
-          return response;
-        };
+    .config(function ($httpProvider, $provide) {
+      $provide.factory('logoutUserOn401', function ($q, $location) {
+        return {
+          response: function (response) {
+            return response;
+          },
+          responseError: function (response) {
+            var notAtAuthPage = $location.path() !== '/signin' && $location.path() !== '/signup' && $location.path().indexOf('/reset-password') === -1;
 
-        var error = function (response) {
-          if (response.status === 401 && response.config.url !== '/api/users/get-current') {
-            // Redirect them back to login page
-            location.href = '/#/signin';
-
-            return $q.reject(response);
-          } else {
-            if (response.data.message) {
+            if (response.status === 401 && notAtAuthPage) {
+              // Redirect them back to login page
+              location.href = '/#/signin';
+            } else if (response.data.message && notAtAuthPage) {
               alert(response.data.message);
             }
 
             return $q.reject(response);
           }
         };
+      });
 
-        return function (promise) {
-          return promise.then(success, error);
-        };
-      }];
-
-      $httpProvider.responseInterceptors.push(logoutUserOn401);
+      $httpProvider.interceptors.push('logoutUserOn401');
     })
 
     .config(function ($urlRouterProvider) {
