@@ -3,16 +3,18 @@ define(['./module', 'underscore'], function (module, _) {
 
   module.controller('RetrospectivesViewCtrl', function ($scope, UserManager, socket, retrospective, fullscreen) {
     $scope.retrospective = retrospective;
+    $scope.user = UserManager.data;
+    $scope.fullscreen = fullscreen;
 
     /**
      * Methods
      */
-    
-    $scope.addNewItem = function ($event) {
-      var code = $event.keyCode || $event.which;
 
-      if (code === 9 || code === 13) {
-        return $event.preventDefault();
+    $scope.addNewAnswer = function (question) {
+      if (question) {
+        question.answers.push({
+          user: $scope.user
+        })
       }
     };
 
@@ -21,11 +23,11 @@ define(['./module', 'underscore'], function (module, _) {
      */
 
     socket.on('retrospective:userJoined', function (user) {
-      var isUserAlredyParticipant = _($scope.retrospective.participants).some(function (participant) {
+      var isUserAlreadyParticipant = _($scope.retrospective.participants).some(function (participant) {
         return participant.user._id === user._id;
       });
 
-      if (!isUserAlredyParticipant) {
+      if (!isUserAlreadyParticipant) {
         $scope.retrospective.participants.push({
           user: user
         });
@@ -51,6 +53,8 @@ define(['./module', 'underscore'], function (module, _) {
       user: UserManager.data
     });
 
-    $scope.fullscreen = fullscreen;
+    // Add empty answer to current active question by default so I can edit it
+    var activeQuestion = _($scope.retrospective.questions).findWhere({ status: 'active' });
+    $scope.addNewAnswer(activeQuestion);
   });
 });

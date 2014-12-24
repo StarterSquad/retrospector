@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var CommentSchema = require('./comment');
 
 var RetrospectiveSchema = new Schema({
   name: {
@@ -45,6 +46,11 @@ var RetrospectiveSchema = new Schema({
         required: true,
         trim: true
       },
+      likes: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+      }],
+      comments: [CommentSchema],
       createdAt: {
         type: Date,
         default: Date.now
