@@ -1,5 +1,5 @@
 define ['angular-mocks', 'Source/modules/retrospectives/view/retrospectives-view-ctrl'], ->
-  describe 'RetrospectivesViewCtrl in app.retrospectives.view', ->
+  xdescribe 'RetrospectivesViewCtrl in app.retrospectives.view', ->
     scope = null
     RetrospectiveResource = null
 
@@ -26,6 +26,5 @@ define ['angular-mocks', 'Source/modules/retrospectives/view/retrospectives-view
         expect(scope.retrospective instanceof RetrospectiveResource).toBe(true)
 
       it 'should emit user:joinToRetrospective with proper data', inject((socket) ->
-
         expect(socket.emit).toHaveBeenCalled()
       )

@@ -58,10 +58,12 @@ define ['angular-mocks', 'Source/modules/teams/modals/add-edit-team-ctrl'], ->
 
           $httpBackend.expectPUT('/api/teams/123', {
             _id: '123'
-            name: 'Foo Team'
+            name: 'Foo Team',
+            members: []
           }).respond {
             _id: '123'
-            name: 'Foo Team'
+            name: 'Foo Team',
+            members: []
           }
 
           scope.saveTeam()
