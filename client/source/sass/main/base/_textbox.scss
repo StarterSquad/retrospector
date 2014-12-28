@@ -1,15 +1,14 @@
-
 // Textbox
 // =======
 
 .txbox {
   @extend .txbox.__m, .txbox.__white;
-  border-style: solid;
-  border-width: 1px;
-  cursor: text;
   display: block;
-  transition: 0.33s opacity;
   width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  cursor: text;
+  transition: 0.33s opacity;
 
   &.__invalid:not(:focus) {
     color: $color-red;
@@ -27,8 +26,8 @@
   // ### Colours
 
   &.__white {
-    background: #FFF;
     border-color: desaturate(lighten($color-primary, 35%), 15%);
+    background: #FFF;
   }
 
   // ### Misc
@@ -45,12 +44,12 @@
 //
 
 select.txbox {
-  background: inline-asset('base/textbox/arrows.svg') no-repeat 100% 50%;
-  cursor: default;
   border-radius: 3px;
-  -webkit-appearance: none; // 1
-  text-indent: 0.01px; // 2
-  text-overflow: ''; // 2
+  background: inline-asset('base/textbox/arrows.svg') no-repeat 100% 50%;
+  text-indent: 0.01px;
+  text-overflow: ''; // 1
+  cursor: default; // 2
+  -webkit-appearance: none; // 2
 
   &::-ms-expand {
     display: none; // 3

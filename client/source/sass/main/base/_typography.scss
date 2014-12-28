@@ -23,12 +23,12 @@
 // -------------------
 
 @each $entity, $width in (
-  'bdquo':  0.33em, // „
-  'laquo':  0.56em, // «
-  'ldquo':  0.33em, // “
+  'bdquo': 0.33em, // „
+  'laquo': 0.56em, // «
+  'ldquo': 0.33em, // “
   'lsaquo': 0.33em, // ‹
-  'lsquo':  0.22em, // ‘
-  'sbquo':  0.22em, // ‚
+  'lsquo': 0.22em, // ‘
+  'sbquo': 0.22em, // ‚
 ) {
 
   .h#{$entity} {
@@ -43,7 +43,7 @@
 // Small Capitals
 
 .small-caps {
-  font-size: 0.925em;
-  letter-spacing: 0.15em;
   margin-right: -0.15em;
+  letter-spacing: 0.15em;
+  font-size: 0.925em;
 }

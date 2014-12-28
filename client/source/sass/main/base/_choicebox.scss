@@ -43,9 +43,9 @@
 
 .checkbox-inline,
 .radio-inline {
-  cursor: pointer;
   display: inline-block;
   vertical-align: middle;
+  cursor: pointer;
 
   & + & {
     margin-left: 20px;

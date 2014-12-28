@@ -4,10 +4,10 @@
 .form {
 
   &_label {
-    font-size: 12px;
     display: block;
     margin-bottom: 9px;
-    font-weight: bold;
     color: $color-primary;
+    font-weight: bold;
+    font-size: 12px;
   }
 }

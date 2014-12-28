@@ -2,12 +2,12 @@
   display: inline-block;
 
   > .btn {
-    float: left;
     position: relative;
+    float: left;
 
     &:first-child:not(:last-child) {
-      border-bottom-right-radius: 0;
       border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
     &:not(:first-child) {
@@ -19,8 +19,8 @@
     }
 
     &:last-child:not(:first-child) {
-      border-bottom-left-radius: 0;
       border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
 
     &:focus {

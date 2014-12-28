@@ -2,14 +2,14 @@
 // ====
 
 h1 {
-  background: $color-second;
-  font-size: 21px;
-  font-weight: normal;
-  line-height: 1.25;
-
-  // Fix space around header
   margin: -20px;
   margin-bottom: 20px;
   padding: 20px;
   padding-bottom: 18px;
+
+  // Fix space around header
+  background: $color-second;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 1.25;
 }

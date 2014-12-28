@@ -3,30 +3,30 @@
 
 .btn {
   @extend .btn.__m, .btn.__blue;
-  margin: 0;
-  font-size: 11px;
   display: inline-block;
-  zoom: 1;
-  cursor: pointer;
-  white-space: nowrap;
-  outline: none;
-  vertical-align: top;
   overflow: visible;
-  line-height: 13px;
-  text-decoration: none;
-  background: none;
-  border-radius: 2px;
-  color: #FFF;
+  margin: 0;
+  outline: none;
   border: 0;
+  border-radius: 2px;
+  background: none;
+  color: #FFF;
+  vertical-align: top;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 11px;
+  line-height: 13px;
+  cursor: pointer;
   transition: all 100ms;
+  zoom: 1;
 
   &:focus {
     outline: 0;
   }
 
   &:disabled {
-    cursor: default !important;
     opacity: 0.6;
+    cursor: default !important;
     pointer-events: none;
   }
 
@@ -50,14 +50,14 @@
   // ### Colours
 
   &.__white {
-    background: #cfd9e9;
     border: 1px solid darken(#cfd9e9, 1%);
+    background: #cfd9e9;
     color: #444;
 
     &.__active,
     &:active:not(:disabled) {
-      background: #c3d3e7;
       border: 1px solid darken(#c3d3e7, 1%);
+      background: #c3d3e7;
     }
   }
 

@@ -16,14 +16,14 @@
     }
 
     &:not(:first-child) {
+      margin-top: -1px;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
-      margin-top: -1px;
     }
 
     &:not(:last-child) {
-      border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
 
@@ -45,8 +45,8 @@
       .txbox-group_addon,
       .txbox-group_btn > .btn,
       .txbox-group_txbox {
-        border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
       }
     }
   }

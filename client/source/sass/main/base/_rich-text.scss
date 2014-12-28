@@ -1,14 +1,15 @@
 // Rich-text
 // =========
 
-.rich {}
+.rich {
+}
 
 // Headings
 // --------
 
 @include rich-selector(h1, h2, h3, h4, h5, h6) {
-  line-height: 1.1;
   margin: 36px 0 12px;
+  line-height: 1.1;
 }
 
 .rich:first-child h1:first-child,
@@ -50,10 +51,10 @@
 }
 
 @include rich-selector(blockquote) {
-  border-left: 4px solid #999;
-  color: #999;
   margin: 0 0 12px;
   padding-left: 12px;
+  border-left: 4px solid #999;
+  color: #999;
 }
 
 @include rich-selector(ul, ol) {
@@ -80,23 +81,23 @@
 // ----
 
 @include rich-selector(code, pre) {
-  background: #f8f8f8;
-  border-radius: 2px;
   border: 1px solid #dadada;
+  border-radius: 2px;
+  background: #f8f8f8;
   color: #666;
   font-family: $consolas;
 }
 
 @include rich-selector(code) {
-  font-size: 85%;
   padding: 1px 2px;
+  font-size: 85%;
 }
 
 @include rich-selector(pre) {
-  font-size: 12px;
   overflow: auto;
   padding: 6px 10px;
   white-space: pre;
+  font-size: 12px;
 }
 
 // Misc.
@@ -112,9 +113,9 @@
 }
 
 @include rich-selector(hr) {
-  border-color: #dadada;
-  border-style: solid;
-  border-width: 2px 0 0;
   margin: 36px auto;
   width: 15%;
+  border-width: 2px 0 0;
+  border-style: solid;
+  border-color: #dadada;
 }

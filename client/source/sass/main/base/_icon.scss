@@ -3,9 +3,9 @@
 
 .ic {
   @include position(relative, 1px none none);
+  display: inline-block;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  display: inline-block;
   line-height: 1;
 
   .btn > & {
