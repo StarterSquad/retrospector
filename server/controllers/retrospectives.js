@@ -44,6 +44,30 @@ exports.create = function (req, res) {
   })
 };
 
+exports.addAnswer = function (retrospectiveId, questionId, answerText, userId, done) {
+  Retrospective.findById(retrospectiveId, function (err, retrospective) {
+    if (err) throw new Error(err);
+
+    var question = _(retrospective.questions).find(function (question) {
+      return question._id.equals(questionId);
+    });
+
+    question.answers.push({
+      user: userId,
+      text: answerText
+    });
+
+    retrospective.save(function (err, updatedRetrospective) {
+      var question = _(updatedRetrospective.questions).find(function (question) {
+        return question._id.equals(questionId);
+      });
+      var addedAnswer = question.answers[question.answers.length - 1];
+
+      done(err, addedAnswer)
+    });
+  });
+};
+
 exports.addParticipant = function (retrospectiveId, userId, done) {
   Retrospective.findById(retrospectiveId, function (err, retrospective) {
     if (err) throw new Error(err);

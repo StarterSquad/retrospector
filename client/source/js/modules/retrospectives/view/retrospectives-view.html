@@ -20,14 +20,14 @@
     <div class="retrospective_block"
          ng-class="{ __compressed: question.status === 'finished' }"
          ng-if="question.status === 'active'"
-         ng-repeat="question in retrospective.questions">
+         ng-repeat="question in retrospective.questions track by $index">
       <h2 class="retrospective_block_header">{{ question.text }}</h2>
 
       <ul class="retrospective_block_list">
-        <li class="retrospective_block_list_i" ng-repeat="answer in question.answers">
+        <li class="retrospective_block_list_i" ng-repeat="answer in question.answers track by $index" ng-init="answer.user = populateUser(answer.user)">
           <div class="elastic">
             <div class="elastic_col retrospective_block_list_i_avatar">
-              <ng-gravatar email="{{ answer.user.email }}" size="30"></ng-gravatar>
+              <ng-gravatar email="{{ answer.user.email }}" size="24"></ng-gravatar>
             </div>
             <div class="elastic_col retrospective_block_list_i_like-section">
               <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
@@ -39,18 +39,36 @@
               <!-- Your answer. Editable -->
               <input ng-if="answer.user._id === user._id"
                      class="retrospective_block_list_i_add-new"
-                     focus
                      ng-model="answer.text"
-                     ng-enter="answer.text && addNewAnswer(question)"
-                     placeholder=" start typing to add new item">
+                     ng-enter="answer.text && editAnswer(question, answer)">
+            </div>
+          </div>
+        </li>
+
+        <!-- Add new answer form -->
+        <li class="retrospective_block_list_i">
+          <div class="elastic">
+            <div class="elastic_col retrospective_block_list_i_avatar">
+              <ng-gravatar email="{{ user.email }}" size="24"></ng-gravatar>
+            </div>
+            <div class="elastic_col retrospective_block_list_i_like-section">
+              <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
+            </div>
+            <div class="elastic_col retrospective_block_list_i_text">
+              <!-- Your answer. Editable -->
+              <input class="retrospective_block_list_i_add-new"
+                     focus
+                     ng-model="newAnswerText"
+                     ng-enter="newAnswerText && addAnswer(question, newAnswerText); newAnswerText = ''"
+                     placeholder="start typing to add new item">
             </div>
           </div>
         </li>
       </ul>
 
-      <!--<div class="retrospective_block_footer">-->
-      <!--<button class="btn">Start discussion</button>-->
-      <!--</div>-->
+      <div class="retrospective_block_footer">
+      <button class="btn">Start discussion</button>
+      </div>
     </div>
   </div>
 

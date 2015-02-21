@@ -10,12 +10,29 @@ define(['./module', 'underscore'], function (module, _) {
      * Methods
      */
 
-    $scope.addNewAnswer = function (question) {
+    $scope.addAnswer = function (question, newAnswerText) {
       if (question) {
-        question.answers.push({
-          user: $scope.user
-        })
+        var answer = {
+          user: $scope.user._id,
+          text: newAnswerText
+        };
+
+        question.answers.push(answer);
+
+        socket.emit('retrospective:addAnswer', {
+          retrospectiveId: retrospective._id,
+          questionId: question._id,
+          answerText: answer.text
+        });
       }
+    };
+
+    $scope.populateUser = function (id) {
+      return _($scope.retrospective.participants)
+        .chain()
+        .pluck('user')
+        .findWhere({ _id: id })
+        .value();
     };
 
     /**
@@ -44,6 +61,11 @@ define(['./module', 'underscore'], function (module, _) {
       }
     });
 
+    socket.on('retrospective:answerAdded', function (data) {
+      _($scope.retrospective.questions).findWhere({ _id: data.questionId }).answers.push(data.answer);
+    });
+
+
     /**
      * Init
      */
@@ -52,9 +74,5 @@ define(['./module', 'underscore'], function (module, _) {
       retrospectiveId: retrospective._id,
       user: UserManager.data
     });
-
-    // Add empty answer to current active question by default so I can edit it
-    var activeQuestion = _($scope.retrospective.questions).findWhere({ status: 'active' });
-    $scope.addNewAnswer(activeQuestion);
   });
 });

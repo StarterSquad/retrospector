@@ -1,4 +1,4 @@
-define(['../module'], function (module) {
+define(['../module', 'angular', 'jquery'], function (module, angular, $) {
   'use strict';
 
   module.controller('StartNewRetrospectiveCtrl', function ($scope, $state, $timeout, myTeams, UserManager, Retrospective) {
@@ -10,7 +10,7 @@ define(['../module'], function (module) {
     $scope.retrospective = new Retrospective({
       team: myTeams[0]._id,
       leader: UserManager.data._id,
-      questions: []
+      questions: [{}]
     });
 
     /**
@@ -28,11 +28,13 @@ define(['../module'], function (module) {
     };
 
     $scope.addOption = function () {
-      $scope.retrospective.questions.push({});
+      if ($.trim(angular.element('.questions input:nth-last-child(2)').val()).length) {
+        $scope.retrospective.questions.push({});
+      }
 
       // Auto-focus on added option
       $timeout(function () {
-        angular.element('.questions input:nth-last-child(2)').focus();
+        angular.element('.questions input:nth-last-child(2)').focus().select();
       });
     }
   });

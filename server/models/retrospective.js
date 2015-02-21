@@ -28,8 +28,7 @@ var RetrospectiveSchema = new Schema({
     text: {
       type: String,
       required: true,
-      trim: true,
-      unique: true
+      trim: true
     },
     status: {
       type: String,
@@ -39,7 +38,8 @@ var RetrospectiveSchema = new Schema({
     answers: [{
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
       },
       text: {
         type: String,
