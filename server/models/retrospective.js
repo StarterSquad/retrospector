@@ -35,6 +35,10 @@ var RetrospectiveSchema = new Schema({
       enum: ['active', 'waiting', 'finished'],
       default: 'waiting'
     },
+    finishedDiscussion: [{
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }],
     answers: [{
       user: {
         type: Schema.Types.ObjectId,

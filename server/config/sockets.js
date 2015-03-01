@@ -66,6 +66,18 @@ module.exports = function (io) {
       });
     });
 
+    socket.on('retrospective:finishDiscussion', function (data) {
+      retrospectives.finishDiscussion(data.retrospectiveId, data.questionId, sessionId, function (err) {
+        if (err) throw new Error(err);
+
+        socket.broadcast.to(data.retrospectiveId).emit('retrospective:discussionFinished', {
+          questionId: data.questionId,
+          user: sessionId
+        });
+        resetIdle(data.retrospectiveId);
+      });
+    });
+
 //    socket.on('user:resetIdle', resetIdle);
 
     socket.on('disconnect', function () {

@@ -13,10 +13,11 @@
 
   &.__idle {
     box-shadow: none;
-    opacity: 0.35;
+    opacity: .35;
     filter: blur(2px);
 
     &:hover {
+      opacity: .6;
       filter: blur(0);
     }
   }
@@ -33,7 +34,7 @@
     margin-bottom: 10px;
     text-align: center;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 19px;
     font-family: Georgia;
   }
 
@@ -48,8 +49,8 @@
     list-style: none;
 
     &_i {
-      cursor: pointer;
       height: 26px;
+      cursor: pointer;
 
       // Override default value
       .elastic_col + .elastic_col {
@@ -95,14 +96,17 @@
   }
 
   &.__compressed {
-    color: #aaa;
+    //    color: #aaa;
 
     .retrospective_block_header {
-      margin-top: 20px;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      padding-left: 45px;
+      text-align: left;
     }
 
     .retrospective_block_list_i + .retrospective_block_list_i {
-      margin-top: -15px;
+      margin-top: -10px;
       //      TODO fix and turn on animation
       //      animation: compress 300ms;
     }
@@ -117,6 +121,20 @@
 
     .retrospective_block_list_i_avatar img {
       filter: grayscale(70%);
+    }
+  }
+
+  &.__next {
+    color: #aaa;
+    cursor: pointer;
+    transition-timing-function: ease-out;
+    transition-duration: 150ms;
+    transition-property: transform, color, padding;
+
+    &:hover {
+      color: #777;
+      transform: translate(0, -3px);
+      padding-bottom: 3px;
     }
   }
 }

@@ -48,9 +48,7 @@ exports.addAnswer = function (retrospectiveId, questionId, answerText, userId, d
   Retrospective.findById(retrospectiveId, function (err, retrospective) {
     if (err) throw new Error(err);
 
-    var question = _(retrospective.questions).find(function (question) {
-      return question._id.equals(questionId);
-    });
+    var question = _(retrospective.questions).findById(questionId);
 
     question.answers.push({
       user: userId,
@@ -58,9 +56,9 @@ exports.addAnswer = function (retrospectiveId, questionId, answerText, userId, d
     });
 
     retrospective.save(function (err, updatedRetrospective) {
-      var question = _(updatedRetrospective.questions).find(function (question) {
-        return question._id.equals(questionId);
-      });
+      if (err) throw new Error(err);
+
+      var question = _(updatedRetrospective.questions).findById(questionId);
       var addedAnswer = question.answers[question.answers.length - 1];
 
       done(err, addedAnswer)
@@ -96,9 +94,7 @@ exports.setParticipantIdle = function (retrospectiveId, userId, isIdle, done) {
     if (err) throw new Error(err);
 
     // Is user already a participant of this retrospective
-    var existingParticipant = _(retrospective.participants).find(function (participant) {
-      return participant.user.equals(userId);
-    });
+    var existingParticipant = _(retrospective.participants).findById(userId);
 
     if (existingParticipant) {
       existingParticipant.isIdle = isIdle;
@@ -109,5 +105,21 @@ exports.setParticipantIdle = function (retrospectiveId, userId, isIdle, done) {
     if (done) {
       done(null);
     }
+  })
+};
+
+exports.finishDiscussion = function (retrospectiveId, questionId, userId, done) {
+  Retrospective.findById(retrospectiveId, function (err, retrospective) {
+    if (err) throw new Error(err);
+
+    var question = _(retrospective.questions).findById(questionId);
+
+    if (question.finishedDiscussion.indexOf(userId) !== -1) {
+      return done();
+    }
+
+    question.finishedDiscussion.push(userId);
+
+    retrospective.save(done);
   })
 };

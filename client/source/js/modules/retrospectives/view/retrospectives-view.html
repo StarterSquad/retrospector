@@ -18,8 +18,7 @@
 
   <div ng-if="retrospective.participants.length > 1">
     <div class="retrospective_block"
-         ng-class="{ __compressed: question.status === 'finished' }"
-         ng-if="question.status === 'active'"
+         ng-if="question.status !== 'waiting'"
          ng-repeat="question in retrospective.questions track by $index">
       <h2 class="retrospective_block_header">{{ question.text }}</h2>
 
@@ -46,7 +45,7 @@
         </li>
 
         <!-- Add new answer form -->
-        <li class="retrospective_block_list_i">
+        <li class="retrospective_block_list_i" ng-if="question.status === 'active'">
           <div class="elastic">
             <div class="elastic_col retrospective_block_list_i_avatar">
               <ng-gravatar email="{{ user.email }}" size="24"></ng-gravatar>
@@ -66,9 +65,22 @@
         </li>
       </ul>
 
-      <div class="retrospective_block_footer">
-      <button class="btn">Start discussion</button>
+      <div class="retrospective_block_footer" ng-if="question.status === 'active'">
+        <button class="btn __blue"
+                ng-click="finishDiscussion(question)"
+                btn-progress="question.finishedDiscussion.length"
+                btn-progress-max="retrospective.participants.length"
+                btn-progress-color="'#8ec182'">
+          I'm done
+        </button>
       </div>
+    </div>
+
+    <!-- Finish discussion -->
+    <div class="retrospective_block __next"
+         ng-click="goToNextQuestion()"
+         ng-if="retrospective.leader === user._id && (retrospective.questions | filter:{status:'waiting'}).length">
+      <h2 class="retrospective_block_header">Start duscussion of "{{ (retrospective.questions | filter:{status:'waiting'})[0].text }}"</h2>
     </div>
   </div>
 

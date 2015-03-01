@@ -9,7 +9,7 @@
   outline: none;
   border: 0;
   border-radius: 2px;
-  background: none;
+  background-color: none;
   color: #FFF;
   vertical-align: top;
   text-decoration: none;
@@ -51,22 +51,22 @@
 
   &.__white {
     border: 1px solid darken(#cfd9e9, 1%);
-    background: #cfd9e9;
+    background-color: #cfd9e9;
     color: #444;
 
     &.__active,
     &:active:not(:disabled) {
       border: 1px solid darken(#c3d3e7, 1%);
-      background: #c3d3e7;
+      background-color: #c3d3e7;
     }
   }
 
   &.__blue {
-    background: lighten($color-primary, 9.2%);
+    background-color: lighten($color-primary, 9.2%);
 
     &.__active,
     &:active:not(:disabled) {
-      background: $color-primary;
+      background-color: $color-primary;
     }
   }
 

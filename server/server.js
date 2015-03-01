@@ -22,6 +22,15 @@ _.str = require('underscore.string');
 // Mix in non-conflict functions to Underscore namespace if you want
 _.mixin(_.str.exports());
 
+// Make devs' life better
+_.mixin({
+  findById: function(collection, id) {
+    return _(collection).find(function (item) {
+      return item._id.equals(id);
+    });
+  }
+});
+
 // All functions, include conflict, will be available through _.str object
 _.str.include('Underscore.string', 'string'); // => true
 
