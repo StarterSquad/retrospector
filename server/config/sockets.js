@@ -67,12 +67,13 @@ module.exports = function (io) {
     });
 
     socket.on('retrospective:finishDiscussion', function (data) {
-      retrospectives.finishDiscussion(data.retrospectiveId, data.questionId, sessionId, function (err) {
+      retrospectives.finishDiscussion(data.retrospectiveId, data.questionId, sessionId, function (err, updatedRetrospective) {
         if (err) throw new Error(err);
 
         socket.broadcast.to(data.retrospectiveId).emit('retrospective:discussionFinished', {
           questionId: data.questionId,
-          user: sessionId
+          user: sessionId,
+          doSwitchToNextDiscussion: updatedRetrospective.leader.equals(sessionId) // Switch to the next discussion if leader finished the discussion
         });
         resetIdle(data.retrospectiveId);
       });

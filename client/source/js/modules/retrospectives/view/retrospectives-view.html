@@ -65,23 +65,27 @@
         </li>
       </ul>
 
-      <div class="retrospective_block_footer" ng-if="question.status === 'active'">
+      <div class="retrospective_block_footer" ng-if="question.status === 'active' && question.answers.length">
         <button class="btn __blue"
                 ng-click="finishDiscussion(question)"
                 btn-progress="question.finishedDiscussion.length"
                 btn-progress-max="retrospective.participants.length"
                 btn-progress-color="'#8ec182'">
-          I'm done
+          <span ng-if="retrospective.leader !== user._id">I'm done</span>
+          <span ng-if="retrospective.leader === user._id">
+            Finish
+            <span ng-if="(retrospective.questions | filter:{status:'waiting'}).length">discussion</span>
+            <span ng-if="!(retrospective.questions | filter:{status:'waiting'}).length">retrospective</span>
+          </span>
         </button>
       </div>
     </div>
 
-    <!-- Finish discussion -->
-    <div class="retrospective_block __next"
-         ng-click="goToNextQuestion()"
-         ng-if="retrospective.leader === user._id && (retrospective.questions | filter:{status:'waiting'}).length">
-      <h2 class="retrospective_block_header">Start duscussion of "{{ (retrospective.questions | filter:{status:'waiting'})[0].text }}"</h2>
-    </div>
+    <!--<div class="retrospective_block __next"-->
+         <!--ng-click="goToNextQuestion()"-->
+         <!--ng-if="retrospective.leader === user._id && (retrospective.questions | filter:{status:'waiting'}).length">-->
+      <!--<h2 class="retrospective_block_header">Start discussion of "{{ (retrospective.questions | filter:{status:'waiting'})[0].text }}"</h2>-->
+    <!--</div>-->
   </div>
 
   <!--<div class="retrospective_block __compressed">-->

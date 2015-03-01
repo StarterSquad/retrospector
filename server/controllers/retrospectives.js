@@ -113,12 +113,22 @@ exports.finishDiscussion = function (retrospectiveId, questionId, userId, done) 
     if (err) throw new Error(err);
 
     var question = _(retrospective.questions).findById(questionId);
+    var nextWaitingQuestion = _(retrospective.questions).find({ status: 'waiting' });
 
-    if (question.finishedDiscussion.indexOf(userId) !== -1) {
-      return done();
+    // Mark user is done (once)
+    if (question.finishedDiscussion.indexOf(userId) === -1) {
+      question.finishedDiscussion.push(userId);
     }
 
-    question.finishedDiscussion.push(userId);
+    // If user is leader
+    if (retrospective.leader.equals(userId)) {
+      // Finish discussion of the question
+      question.status = 'finished';
+      // Start new discussion
+      if (nextWaitingQuestion) {
+        nextWaitingQuestion.status = 'active';
+      }
+    }
 
     retrospective.save(done);
   })

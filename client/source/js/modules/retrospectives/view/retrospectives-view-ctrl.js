@@ -32,22 +32,16 @@ define(['./module', 'underscore'], function (module, _) {
         return;
       }
 
-      question.finishedDiscussion.push($scope.user._id);
+      if ($scope.retrospective.leader === $scope.user._id) {
+        switchToNextQuestion();
+      } else {
+        question.finishedDiscussion.push($scope.user._id);
+      }
 
       socket.emit('retrospective:finishDiscussion', {
         retrospectiveId: retrospective._id,
         questionId: question._id
       });
-    };
-
-    $scope.goToNextQuestion = function () {
-      var activeQuestion = _($scope.retrospective.questions).find({ status: 'active' });
-      var nextWaitingQuestion = _($scope.retrospective.questions).find({ status: 'waiting' });
-
-      if (nextWaitingQuestion) {
-        activeQuestion.status = 'finished';
-        nextWaitingQuestion.status = 'active';
-      }
     };
 
     $scope.populateUser = function (id) {
@@ -57,6 +51,20 @@ define(['./module', 'underscore'], function (module, _) {
         .findWhere({ _id: id })
         .value();
     };
+
+    /**
+     * Helpers
+     */
+
+    function switchToNextQuestion() {
+      var activeQuestion = _($scope.retrospective.questions).find({ status: 'active' });
+      var nextWaitingQuestion = _($scope.retrospective.questions).find({ status: 'waiting' });
+
+      if (nextWaitingQuestion) {
+        activeQuestion.status = 'finished';
+        nextWaitingQuestion.status = 'active';
+      }
+    }
 
     /**
      * Handlers
@@ -85,12 +93,15 @@ define(['./module', 'underscore'], function (module, _) {
     });
 
     socket.on('retrospective:answerAdded', function (data) {
-      console.log(data.questionId);
       _($scope.retrospective.questions).findWhere({ _id: data.questionId }).answers.push(data.answer);
     });
 
     socket.on('retrospective:discussionFinished', function (data) {
-      _($scope.retrospective.questions).findWhere({ _id: data.questionId }).finishedDiscussion.push(data.user);
+      if (data.doSwitchToNextDiscussion) {
+        switchToNextQuestion();
+      } else {
+        _($scope.retrospective.questions).findWhere({ _id: data.questionId }).finishedDiscussion.push(data.user);
+      }
     });
 
 
