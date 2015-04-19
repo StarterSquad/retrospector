@@ -45,16 +45,13 @@
         </li>
 
         <!-- Add new answer form -->
-        <li class="retrospective_block_list_i" ng-if="question.status === 'active'">
+        <li class="retrospective_block_list_i" ng-if="question.status === 'active'" style="cursor: inherit;">
           <div class="elastic">
             <div class="elastic_col retrospective_block_list_i_avatar">
               <ng-gravatar email="{{ user.email }}" size="24"></ng-gravatar>
             </div>
-            <div class="elastic_col retrospective_block_list_i_like-section">
-              <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
-            </div>
+            <div class="elastic_col retrospective_block_list_i_like-section __no-like"></div>
             <div class="elastic_col retrospective_block_list_i_text">
-              <!-- Your answer. Editable -->
               <input class="retrospective_block_list_i_add-new"
                      focus
                      ng-model="newAnswerText"
@@ -82,9 +79,9 @@
     </div>
 
     <!--<div class="retrospective_block __next"-->
-         <!--ng-click="goToNextQuestion()"-->
-         <!--ng-if="retrospective.leader === user._id && (retrospective.questions | filter:{status:'waiting'}).length">-->
-      <!--<h2 class="retrospective_block_header">Start discussion of "{{ (retrospective.questions | filter:{status:'waiting'})[0].text }}"</h2>-->
+    <!--ng-click="goToNextQuestion()"-->
+    <!--ng-if="retrospective.leader === user._id && (retrospective.questions | filter:{status:'waiting'}).length">-->
+    <!--<h2 class="retrospective_block_header">Start discussion of "{{ (retrospective.questions | filter:{status:'waiting'})[0].text }}"</h2>-->
     <!--</div>-->
   </div>
 

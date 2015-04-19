@@ -50,13 +50,11 @@
   // ### Colours
 
   &.__white {
-    border: 1px solid darken(#cfd9e9, 1%);
     background-color: #cfd9e9;
     color: #444;
 
     &.__active,
     &:active:not(:disabled) {
-      border: 1px solid darken(#c3d3e7, 1%);
       background-color: #c3d3e7;
     }
   }

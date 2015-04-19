@@ -69,7 +69,7 @@
         width: 25px;
         font-weight: bold;
 
-        &:after {
+        &:not(.__no-like):after {
           position: absolute;
           top: 2px;
           right: 0;
