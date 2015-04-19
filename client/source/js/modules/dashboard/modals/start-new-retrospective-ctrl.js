@@ -27,7 +27,7 @@ define(['../module', 'angular', 'jquery'], function (module, angular, $) {
       });
     };
 
-    $scope.addOption = function () {
+    $scope.addQuestion = function () {
       if ($.trim(angular.element('.questions input:nth-last-child(2)').val()).length) {
         $scope.retrospective.questions.push({});
       }

@@ -27,6 +27,23 @@ define(['./module', 'underscore'], function (module, _) {
       }
     };
 
+    $scope.likeAnswer = function (answer) {
+      var alreadyLiked = answer.likes.indexOf($scope.user._id) !== -1;
+
+      if (alreadyLiked) {
+        // Dislike
+        answer.likes = _(answer.likes).without($scope.user._id);
+      } else {
+        // Like
+        answer.likes.push($scope.user._id);
+      }
+
+      socket.emit('retrospective:answer:like', {
+        retrospectiveId: retrospective._id,
+        answerId: answer._id
+      });
+    };
+
     $scope.finishDiscussion = function (question) {
       if (question.finishedDiscussion.indexOf($scope.user._id) !== -1) {
         return;
@@ -94,6 +111,14 @@ define(['./module', 'underscore'], function (module, _) {
 
     socket.on('retrospective:answerAdded', function (data) {
       _($scope.retrospective.questions).findWhere({ _id: data.questionId }).answers.push(data.answer);
+    });
+
+    socket.on('retrospective:answer:liked', function (data) {
+      var question = _($scope.retrospective.questions).find(function (quesrion) {
+        return _(quesrion.answers).findWhere({ _id: data.likedAnswer._id });
+      });
+      var answer = _(question.answers).findWhere({ _id: data.likedAnswer._id });
+      answer.likes = data.likedAnswer.likes;
     });
 
     socket.on('retrospective:discussionFinished', function (data) {

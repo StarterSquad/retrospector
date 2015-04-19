@@ -66,6 +66,33 @@ exports.addAnswer = function (retrospectiveId, questionId, answerText, userId, d
   });
 };
 
+exports.likeAnswer = function (retrospectiveId, answerId, userId, done) {
+  Retrospective.findById(retrospectiveId, function (err, retrospective) {
+    if (err) throw new Error(err);
+
+    var question = _(retrospective.questions).find(function (quesrion) {
+      return _(quesrion.answers).findById(answerId);
+    });
+    var answer = _(question.answers).findById(answerId);
+    var existingLikeIndex = answer.likes.indexOf(userId);
+
+    // Is already liked
+    if (existingLikeIndex !== -1) {
+      // Dislike
+      answer.likes.splice(existingLikeIndex, 1);
+    } else {
+      // Like
+      answer.likes.push(userId);
+    }
+
+    retrospective.save(function (err) {
+      if (err) throw new Error(err);
+      
+      done(err, answer)
+    });
+  });
+};
+
 exports.addParticipant = function (retrospectiveId, userId, done) {
   Retrospective.findById(retrospectiveId, function (err, retrospective) {
     if (err) throw new Error(err);

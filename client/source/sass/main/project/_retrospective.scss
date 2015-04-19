@@ -52,11 +52,6 @@
       height: 26px;
       cursor: pointer;
 
-      // Override default value
-      .elastic_col + .elastic_col {
-        padding-left: 10px;
-      }
-
       &_avatar {
         width: 24px;
         opacity: 0;
@@ -68,13 +63,27 @@
       }
 
       &_like-section {
-        padding-top: 2px;
+        position: relative;
+        padding-top: 3px;
+        padding-left: 14px !important;
         width: 25px;
-        opacity: 0;
-        transition: opacity 150ms;
+        font-weight: bold;
+
+        &:after {
+          position: absolute;
+          top: 2px;
+          right: 0;
+          width: 16px;
+          height: 16px;
+          background: url('https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png') no-repeat center center;
+          background-size: 16px 16px;
+          content: '';
+          opacity: 0;
+          transition: opacity 150ms;
+        }
       }
 
-      &:hover &_like-section,
+      &:hover &_like-section:after,
       &:hover &_avatar {
         opacity: 1;
       }
@@ -132,20 +141,11 @@
     transition-property: transform, color, padding;
 
     &:hover {
+      padding-bottom: 3px;
       color: #777;
       transform: translate(0, -3px);
-      padding-bottom: 3px;
     }
   }
-}
-
-.caret {
-  display: inline-block;
-  margin-bottom: -3px;
-  width: 2px;
-  height: 16px;
-
-  animation: pulsate 1s linear infinite;
 }
 
 @keyframes pulsate {

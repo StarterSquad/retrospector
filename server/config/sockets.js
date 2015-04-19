@@ -66,6 +66,17 @@ module.exports = function (io) {
       });
     });
 
+    socket.on('retrospective:answer:like', function (data) {
+      retrospectives.likeAnswer(data.retrospectiveId, data.answerId, sessionId, function (err, likedAnswer) {
+        if (err) throw new Error(err);
+
+        socket.broadcast.to(data.retrospectiveId).emit('retrospective:answer:liked', {
+          likedAnswer: likedAnswer
+        });
+        resetIdle(data.retrospectiveId);
+      });
+    });
+
     socket.on('retrospective:finishDiscussion', function (data) {
       retrospectives.finishDiscussion(data.retrospectiveId, data.questionId, sessionId, function (err, updatedRetrospective) {
         if (err) throw new Error(err);

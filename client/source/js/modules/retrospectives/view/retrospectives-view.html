@@ -23,13 +23,13 @@
       <h2 class="retrospective_block_header">{{ question.text }}</h2>
 
       <ul class="retrospective_block_list">
-        <li class="retrospective_block_list_i" ng-repeat="answer in question.answers track by $index" ng-init="answer.user = populateUser(answer.user)">
+        <li class="retrospective_block_list_i" ng-repeat="answer in question.answers | orderBy:'-likes.length'" ng-init="answer.user = populateUser(answer.user)" ng-click="likeAnswer(answer)">
           <div class="elastic">
             <div class="elastic_col retrospective_block_list_i_avatar">
               <ng-gravatar email="{{ answer.user.email }}" size="24"></ng-gravatar>
             </div>
             <div class="elastic_col retrospective_block_list_i_like-section">
-              <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/like.png" alt="Like!" width="16px">
+              {{ answer.likes.length || '' }}
             </div>
             <div class="elastic_col retrospective_block_list_i_text">
               <!-- Not your answer. Readonly -->
