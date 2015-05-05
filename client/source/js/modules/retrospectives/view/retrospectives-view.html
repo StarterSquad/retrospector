@@ -23,12 +23,12 @@
       <h2 class="retrospective_block_header">{{ question.text }}</h2>
 
       <ul class="retrospective_block_list">
-        <li class="retrospective_block_list_i" ng-repeat="answer in question.answers | orderBy:'-likes.length'" ng-init="answer.user = populateUser(answer.user)" ng-click="likeAnswer(answer)">
+        <li class="retrospective_block_list_i" ng-repeat="answer in question.answers | orderBy:'-likes.length'" ng-init="answer.user = populateUser(answer.user)">
           <div class="elastic">
             <div class="elastic_col retrospective_block_list_i_avatar">
               <ng-gravatar email="{{ answer.user.email }}" size="24"></ng-gravatar>
             </div>
-            <div class="elastic_col retrospective_block_list_i_like-section">
+            <div class="elastic_col retrospective_block_list_i_like-section" ng-click="likeAnswer(answer)">
               {{ answer.likes.length || '' }}
             </div>
             <div class="elastic_col retrospective_block_list_i_text">
@@ -40,23 +40,36 @@
                      class="retrospective_block_list_i_add-new"
                      ng-model="answer.text"
                      ng-enter="answer.text && editAnswer(question, answer)">
+
+              <div ng-if="$first" class="retrospective_block_list_i_comments">
+                <div class="retrospective_block_list_i_comments_i">Remove Peter from Spotless team</div>
+                <div class="retrospective_block_list_i_comments_i">Split into smaller teams</div>
+                <div class="retrospective_block_list_i_comments_i">Integrate all teams with SSQ Calendar</div>
+                <div class="retrospective_block_list_i_comments_add-new">
+                  <input type="text" class="txbox" placeholder="Write your comment...">
+                </div>
+              </div>
+
+              <div ng-if="!$first" class="retrospective_block_list_i_comments">
+                <div class="retrospective_block_list_i_comments_add-new">
+                  <input type="text" class="txbox" placeholder="Write your comment...">
+                </div>
+              </div>
             </div>
           </div>
         </li>
 
         <!-- Add new answer form -->
-        <li class="retrospective_block_list_i" ng-if="question.status === 'active'" style="cursor: inherit;">
+        <li class="retrospective_block_list_i" ng-if="question.status === 'active'">
           <div class="elastic">
-            <div class="elastic_col retrospective_block_list_i_avatar">
-              <ng-gravatar email="{{ user.email }}" size="24"></ng-gravatar>
-            </div>
+            <div class="elastic_col retrospective_block_list_i_avatar"></div>
             <div class="elastic_col retrospective_block_list_i_like-section __no-like"></div>
             <div class="elastic_col retrospective_block_list_i_text">
               <input class="retrospective_block_list_i_add-new"
                      focus
                      ng-model="newAnswerText"
                      ng-enter="newAnswerText && addAnswer(question, newAnswerText); newAnswerText = ''"
-                     placeholder="start typing to add new item">
+                     placeholder="Start typing to add new item...">
             </div>
           </div>
         </li>

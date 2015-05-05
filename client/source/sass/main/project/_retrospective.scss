@@ -49,9 +49,6 @@
     list-style: none;
 
     &_i {
-      height: 26px;
-      cursor: pointer;
-
       &_avatar {
         width: 24px;
         opacity: 0;
@@ -68,6 +65,7 @@
         padding-left: 14px !important;
         width: 25px;
         font-weight: bold;
+        cursor: pointer;
 
         &:not(.__no-like):after {
           position: absolute;
@@ -90,6 +88,36 @@
 
       &_text {
         padding-top: 3px;
+      }
+
+      &_comments {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        margin-left: 8px;
+        background: #f3f5f8;
+
+        &_i {
+          padding: 5px;
+        }
+
+        &_add-new > .txbox {
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          margin-top: 5px;
+          border-color: #e8eaed;
+
+          &:focus {
+            outline: none;
+            border-color: darken(#e8eaed, 10%);
+          }
+        }
+
+        &_i + &_add-new {
+          & > .txbox {
+            border: 1px solid #e8eaed;
+          }
+        }
       }
 
       &_add-new {

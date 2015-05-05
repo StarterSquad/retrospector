@@ -3,7 +3,7 @@ define(['angular', 'js-md5'], function (angular, md5) {
 
   angular.module('ngGravatar', []).directive('ngGravatar', function () {
     return {
-      template: '<img ng-src="https://secure.gravatar.com/avatar/{{ imgHash }}?s={{ imgSize }}" alt="gravatarImg" width="{{ imgSize }}px">',
+      template: '<img ng-src="https://secure.gravatar.com/avatar/{{ imgHash }}?s={{ imgSize }}" width="{{ imgSize }}px">',
       replace: true,
       restrict: 'E',
       scope: {

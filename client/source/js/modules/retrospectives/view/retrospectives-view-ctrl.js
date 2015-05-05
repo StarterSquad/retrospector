@@ -14,7 +14,8 @@ define(['./module', 'underscore'], function (module, _) {
       if (question) {
         var answer = {
           user: $scope.user._id,
-          text: newAnswerText
+          text: newAnswerText,
+          likes: []
         };
 
         question.answers.push(answer);
